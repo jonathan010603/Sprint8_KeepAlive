@@ -1,16 +1,17 @@
 import { ReactNode } from "react";
-import { Container, FormContainer, Message, InsertUser, InsertPassword } from "./LoginComponents";
+import { Container, LeftSide, Content, Message, Form } from "./LoginComponents";
 
 type children = { children: ReactNode }
 
 export const Login = () => {
     return (
         <Container>
-            <FormContainer>
-                <Message />
-                <InsertUser />
-                <InsertPassword />
-            </FormContainer>
+            <LeftSide>
+                <Content>
+                    <Message />
+                    <Form />
+                </Content>
+            </LeftSide>
         </Container>
     );
 }
