@@ -8,9 +8,15 @@ const variables = {
 }
 
 export const Container = styled.main`
+    display: flex;
     width: 100vw;
     height: 100vh;
     font-family: Mark Pro;
+`
+
+export const RightSide = styled.img`
+    width: 50vw;
+    height: 100%;
 `
 
 export const LeftSide = styled.div`
@@ -30,14 +36,14 @@ export const Content = styled.div`
 
 export const Hello = styled.span`
     font-size: 60px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 76px;
     text-align: left;
 `
 
 export const Phrase = styled.span`
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 20px;
     text-align: left;
     margin-bottom: 12.5vh;
@@ -45,7 +51,7 @@ export const Phrase = styled.span`
 
 export const FormTitle = styled.span`
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 38px;
     text-align: left;
     margin-bottom: 2.9vh;
@@ -70,7 +76,7 @@ export const Field = styled.input`
     background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
     border: 1px solid #FFFFFF;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 20px;
     text-align: left;
 `
@@ -80,7 +86,7 @@ export const Btn = styled.button`
     padding: 0;
     margin-top: 7.5vh;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 23px;
     text-align: center;
     height: 6.2vh;
