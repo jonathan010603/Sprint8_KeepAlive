@@ -1,5 +1,7 @@
-import { Container, Header, Content, GiantLogo, TextContainer, BigText, FirstText, LittleText, LinesWrapper, Footer } from "./HomeComponents";
-import circleLogo from './assets/circleLogo.svg';
+import { Container, Content, GiantLogo, TextContainer, BigText, FirstText, LittleText, LinesWrapper } from "./HomeComponents";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import circleLogo from './assets/circleLogo.png';
 
 export const Home = () => {
     return (

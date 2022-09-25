@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import circleLogo from './assets/circleLogo.svg';
 
 const variables = {
     bigText: "#C12D18",
@@ -12,13 +11,6 @@ export const Container = styled.main`
     width: 100vw;
     height: 100vh;
     font-family: Mark Pro;
-`
-
-export const Header = styled.header`
-    align-self: center;
-    width: 95.7vw;
-    height: 15.6vh;
-    background-color: black;
 `
 
 export const Content = styled.div`
@@ -73,10 +65,4 @@ export const LinesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 2.03vh;
-`
-
-export const Footer = styled.footer`
-    width: 100vw;
-    height: 9.2vh;
-    background-color: yellow;
 `
