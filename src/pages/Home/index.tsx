@@ -1,4 +1,4 @@
-import { Container, Header, Content, GiantLogo, TextContainer, BigText, FirstText, LittleText, Footer } from "./HomeComponents";
+import { Container, Header, Content, GiantLogo, TextContainer, BigText, FirstText, LittleText, LinesWrapper, Footer } from "./HomeComponents";
 import circleLogo from './assets/circleLogo.svg';
 
 export const Home = () => {
@@ -6,16 +6,24 @@ export const Home = () => {
         <Container>
             <Header />
             <Content>
-                <GiantLogo src={circleLogo}/>
+                <GiantLogo src={circleLogo} />
                 <TextContainer>
-                    <FirstText>Our mission is</FirstText>
-                    <LittleText>Nossa missão é</LittleText>
-                    <BigText>to transform the world</BigText>
-                    <LittleText>transformar o mundo</LittleText>
-                    <BigText>building digital experiences</BigText>
-                    <LittleText>construindo experiências digitais</LittleText>
-                    <BigText>that enable our client’s growth</BigText>
-                    <LittleText>que permitam o crescimento dos nossos clientes</LittleText>
+                    <LinesWrapper>
+                        <FirstText>Our mission is</FirstText>
+                        <LittleText>Nossa missão é</LittleText>
+                    </LinesWrapper>
+                    <LinesWrapper>
+                        <BigText>to transform the world</BigText>
+                        <LittleText>transformar o mundo</LittleText>
+                    </LinesWrapper>
+                    <LinesWrapper>
+                        <BigText>building digital experiences</BigText>
+                        <LittleText>construindo experiências digitais</LittleText>
+                    </LinesWrapper>
+                    <LinesWrapper>
+                        <BigText>that enable our client’s growth</BigText>
+                        <LittleText>que permitam o crescimento dos nossos clientes</LittleText>
+                    </LinesWrapper>
                 </TextContainer>
             </Content>
             <Footer />

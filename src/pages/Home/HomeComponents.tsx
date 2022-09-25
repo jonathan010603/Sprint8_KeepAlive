@@ -45,17 +45,19 @@ export const TextContainer = styled.div`
 `
 
 export const BigText = styled.span`
+    display: inline-grid;
+    align-items: center;
     font-size: 3.33vw;
     font-weight: 700;
-    line-height: 81px;
     text-align: right;
+    line-height: 6.2vh;
     color: ${variables.bigText};
 `
 
 export const FirstText = styled(BigText)`
     font-size: 1.875vw;
     font-weight: 700;
-    line-height: 46px;
+    line-height: 3.51vh;
     text-align: right;
     color: ${variables.bigText};
 `
@@ -63,9 +65,14 @@ export const FirstText = styled(BigText)`
 export const LittleText = styled.span`
     font-size: 1.25vw;
     font-weight: 400;
-    line-height: 30px;
     text-align: right;
     color: ${variables.littleText};
+`
+
+export const LinesWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.03vh;
 `
 
 export const Footer = styled.footer`
@@ -73,5 +80,3 @@ export const Footer = styled.footer`
     height: 9.2vh;
     background-color: yellow;
 `
-
-//export const Creating text lines wrapper
