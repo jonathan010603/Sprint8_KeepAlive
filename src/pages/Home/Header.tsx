@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import LogoDark from './assets/logoDark.svg';
+import { Time } from './Time';
 
 export const Container = styled.header`
     display: flex;
@@ -16,9 +17,28 @@ export const Logo = styled.img`
 `
 
 export const TimeContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 17.03vw;
     height: 15.64vh;
-    background-color: black;
+`
+
+export const Hour = styled.span`
+    width: 17.03vw;
+    height: 13.51vh;
+    font-size: 7.5vw;
+    font-weight: 700;
+    line-height: 16.94vh;
+    text-align: center;
+`
+
+export const Day = styled.span`
+    height: 1.6vh;
+    font-size: 0.75vw;
+    font-weight: 300;
+    text-align: center;
+
 `
 
 export const WeatherContainer = styled.div`
@@ -32,7 +52,10 @@ export const Header = () => {
     return (
         <Container>
             <Logo src={LogoDark} />
-            <TimeContainer />
+            <TimeContainer>
+                <Hour>{Time().hours}</Hour>
+                <Day>{Time().date}</Day>
+            </TimeContainer>
             <WeatherContainer />
         </Container>
     );

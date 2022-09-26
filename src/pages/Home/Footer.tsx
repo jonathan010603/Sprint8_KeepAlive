@@ -49,7 +49,25 @@ export const RefreshText = styled.div`
 `
 
 export const SecondsContainer = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    width: 5.05vw;
+    height: 6.57vh;
+`
+
+export const Seconds = styled.span`
+    font-size: 2.5vw;
+    font-weight: 700;
+    line-height: 4vh;
+    margin-top: 1.29vh;
+    text-align: center;
+`
+
+export const UnderText = styled.span`
+    font-size: 0.7vw;
+    font-weight: 300;
+    line-height: 1.66vh;
+    text-align: center;
 `
 
 export const NewTabContainer = styled.div`
@@ -92,6 +110,10 @@ export const Footer = () => {
             </TextContainer>
             <RefreshContainer>
                 <RefreshText>Application refresh in</RefreshText>
+                <SecondsContainer>
+                    <Seconds>60</Seconds>
+                    <UnderText>seconds</UnderText>
+                </SecondsContainer>
             </RefreshContainer>
             <NewTabContainer>
                 Continuar<br />
