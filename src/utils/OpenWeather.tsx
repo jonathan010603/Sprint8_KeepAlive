@@ -4,6 +4,25 @@ const fetchUrl = async (url: string) => {
     await fetch(url)
         .then(r => r.json())
         .then(data => {
+            console.log( {
+                city: data.name,
+                temp: data.main.temp,
+                weather: data.weather[0].main
+            })
+        })
+        .catch(err => console.log(err))
+}
+
+export const getWeather = async (position: any) => {
+    const queryUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${KEY}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=28.2623&lon=52.4103&appid=${KEY}`;
+
+    navigator.geolocation && (url = queryUrl);
+
+    await fetch(url)
+        .then(r => r.json())
+        .then(data => {
+            return data.name
             return {
                 city: data.name,
                 temp: data.main.temp,
@@ -11,13 +30,4 @@ const fetchUrl = async (url: string) => {
             }
         })
         .catch(err => console.log(err))
-}
-
-export const getWeather = async (position: any) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${KEY}`;
-    const stdUrl = `https://api.openweathermap.org/data/2.5/weather?lat=28.2623&lon=52.4103&appid=${KEY}`;
-
-    if (navigator.geolocation) return console.log("Deu");
-    //fetchUrl(stdUrl)
-    console.log("Não deu")
 }

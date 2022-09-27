@@ -1,8 +1,9 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getWeather } from '../../utils/OpenWeather';
 import LogoDark from './assets/logoDark.svg';
 import { Time } from './Time';
+import Cloudy from "./assets/cloudy.png";
 
 export const Container = styled.header`
     display: flex;
@@ -27,9 +28,8 @@ export const TimeContainer = styled.div`
 `
 
 export const Hour = styled.span`
-    width: 17.03vw;
     height: 13.51vh;
-    font-size: 7.5vw;
+    font-size: 7vw;
     font-weight: 700;
     line-height: 16.94vh;
     text-align: center;
@@ -40,7 +40,6 @@ export const Day = styled.span`
     font-size: 0.75vw;
     font-weight: 300;
     text-align: center;
-
 `
 
 export const WeatherContainer = styled.div`
@@ -83,9 +82,29 @@ export const Temperature = styled.span`
 `
 
 export const Header = () => {
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(getWeather);
-    }, []);
+    const [locationData, setData] = useState<any>({
+        city: '',
+        temp: '',
+    })
+
+    useEffect(() => navigator.geolocation.getCurrentPosition(async position => {
+        console.log(position.coords.latitude)
+        const KEY = '9e760fdbd058740ef81e5146dbb7297b';
+        const queryUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${KEY}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=-28.2580551&lon=-52.4096252&appid=${KEY}`;
+
+        navigator.geolocation && (url = queryUrl);
+
+        await fetch(url)
+            .then(r => r.json())
+            .then(data => {
+                setData({
+                    city: `${data.name}`,
+                    temp: parseFloat(data.main.temp) - 273.15
+                })
+            })
+            .catch(err => console.log(err))
+    }), []);
 
     return (
         <Container>
@@ -95,10 +114,10 @@ export const Header = () => {
                 <Day>{Time().date}</Day>
             </TimeContainer>
             <WeatherContainer>
-                <City>Passo Fundo - RS</City>
+                <City>{locationData.city} - SC</City>
                 <Climate>
-                    <Image />
-                    <Temperature>22º</Temperature>
+                    <Image src={Cloudy}/>
+                    <Temperature>{parseInt(locationData.temp)}º</Temperature>
                 </Climate>
             </WeatherContainer>
         </Container>

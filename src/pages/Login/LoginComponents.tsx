@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import LoginImage from "./assets/LoginImage.jpg";
 
 const variables = {
     text: "#E0E0E0",
@@ -13,9 +14,20 @@ export const Container = styled.main`
     font-family: Mark Pro;
 `
 
-export const RightSide = styled.img`
+export const RightSide = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 50vw;
     height: 100%;
+    background-image: url(${LoginImage});
+    background-size: cover;
+`
+
+export const LogoTop = styled.img`
+    margin-top: 3.24vh;
+    width: 15.93vw;
+    height: 6.38vh;
 `
 
 export const LeftSide = styled.div`

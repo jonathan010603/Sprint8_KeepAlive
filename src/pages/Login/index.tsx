@@ -1,5 +1,5 @@
-import { Container, RightSide, LeftSide, Content, Message } from "./LoginComponents";
-import LoginImage from "./assets/LoginImage.jpg";
+import { Container, RightSide, LeftSide, Content, Message, LogoTop } from "./LoginComponents";
+import LogoLight from "./assets/logoLight.svg";
 import { Form } from "./Form";
 
 export const Login = () => {
@@ -11,7 +11,9 @@ export const Login = () => {
                     <Form />
                 </Content>
             </LeftSide>
-            <RightSide src={LoginImage} />
+            <RightSide>
+                <LogoTop src={LogoLight} />
+            </RightSide>
         </Container>
     );
 }
