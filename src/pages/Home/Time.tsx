@@ -36,8 +36,8 @@ export const Time = () => {
     const today = date.getDate();
     const month = date.getMonth();
     const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
 
     useEffect(() => {
         const timer = setInterval(refresh, 1000);

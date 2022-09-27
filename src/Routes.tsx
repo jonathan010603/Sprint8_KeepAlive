@@ -5,7 +5,7 @@ import { Login } from "./pages/Login";
 export const Routes = () => {
     return (
         <Paths>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
         </Paths>
     );

@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import UserIcon from "./assets/UserIcon.svg";
-import PasswordIcon from "./assets/PasswordIcon.svg";
 
 const variables = {
     text: "#E0E0E0"
@@ -108,43 +106,8 @@ export const Message = () => {
     );
 }
 
-export const InputField = ({ inside }: { inside: string }) => {
-    return (
-        <Field placeholder={inside} />
-    );
-}
-
-export const FieldUser = () => {
-    return (
-        <FieldContainer>
-            <InputField inside="Usuário" />
-            <img src={UserIcon} />
-        </FieldContainer>
-    );
-}
-
-export const FieldPassword = () => {
-    return (
-        <FieldContainer>
-            <InputField inside="Senha" />
-            <img src={PasswordIcon} />
-        </FieldContainer>
-    );
-}
-
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 `
-
-export const Form = () => {
-    return (
-        <FormContainer>
-            <FormTitle>Login</FormTitle>
-            <FieldUser />
-            <FieldPassword />
-            <Btn>Continuar</Btn>
-        </FormContainer>
-    );
-}

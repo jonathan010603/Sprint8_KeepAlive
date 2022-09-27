@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+import { TimeOut } from './TimeOut';
 import styled from 'styled-components';
 
 const variables = {
@@ -70,7 +72,8 @@ export const UnderText = styled.span`
     text-align: center;
 `
 
-export const NewTabContainer = styled.div`
+export const NewTabContainer = styled.button`
+    cursor: pointer;
     height: 100%;
     width: 6.8vw;
     display: flex;
@@ -81,11 +84,14 @@ export const NewTabContainer = styled.div`
     text-align: center;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #FFFFFF;
+    border: none;
     color: ${variables.newTab}
 `
 
-export const Logout = styled.div`
+export const Logout = styled.button`
+    cursor: pointer;
+    color: #FFFFFF;
     height: 100%;
     width: 6.8vw;
     display: flex;
@@ -95,9 +101,13 @@ export const Logout = styled.div`
     text-align: center;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    border: none;
 `
 
 export const Footer = () => {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <TextContainer>
@@ -111,15 +121,17 @@ export const Footer = () => {
             <RefreshContainer>
                 <RefreshText>Application refresh in</RefreshText>
                 <SecondsContainer>
-                    <Seconds>60</Seconds>
+                    <Seconds>{TimeOut()}</Seconds>
                     <UnderText>seconds</UnderText>
                 </SecondsContainer>
             </RefreshContainer>
-            <NewTabContainer>
+            <NewTabContainer onClick={() => window.open('//www.google.com', '_blank')}>
                 Continuar<br />
                 Navegando
             </NewTabContainer>
-            <Logout>Logout</Logout>
-        </Container>
+            <Logout onClick={() => navigate('/')}>
+                Logout
+            </Logout>
+        </Container >
     );
 }

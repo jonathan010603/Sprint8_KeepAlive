@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { Container, RightSide, LeftSide, Content, Message, Form } from "./LoginComponents";
+import { Container, RightSide, LeftSide, Content, Message } from "./LoginComponents";
 import LoginImage from "./assets/LoginImage.jpg";
+import { Form } from "./Form";
 
 export const Login = () => {
     return (
