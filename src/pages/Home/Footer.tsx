@@ -125,7 +125,7 @@ export const Footer = () => {
                     <UnderText>seconds</UnderText>
                 </SecondsContainer>
             </RefreshContainer>
-            <NewTabContainer onClick={() => window.open('//www.google.com', '_blank')}>
+            <NewTabContainer onClick={() => open('//www.google.com', '_blank')}>
                 Continuar<br />
                 Navegando
             </NewTabContainer>

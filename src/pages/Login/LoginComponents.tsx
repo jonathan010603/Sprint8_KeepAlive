@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 
 const variables = {
-    text: "#E0E0E0"
+    text: "#E0E0E0",
+    error: "#E9B425"
 }
 
 export const Container = styled.main`
@@ -56,6 +57,7 @@ export const FormTitle = styled.span`
 `
 
 export const FieldContainer = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 3vh;
@@ -72,7 +74,7 @@ export const Field = styled.input`
     margin-right: 1vw;
     border-radius: 50px;
     background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
-    border: 1px solid #FFFFFF;
+    border: 1px solid;
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
@@ -80,9 +82,10 @@ export const Field = styled.input`
 `
 
 export const Btn = styled.button`
+    cursor: pointer;
     color: #FFFFFF;
     padding: 0;
-    margin-top: 7.5vh;
+    margin-top: 3.8vh;
     font-size: 18px;
     font-weight: 300;
     line-height: 23px;
@@ -95,6 +98,15 @@ export const Btn = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%), 
     linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
     border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
+`
+
+export const ErrorMsg = styled.span`
+    color: ${variables.error};
+    font-size: 0.8vw;
+    font-weight: 700;
+    line-height: 1.8vh;
+    text-align: center;
+    margin-left: 3.8vw;
 `
 
 export const Message = () => {
@@ -110,4 +122,9 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+`
+
+export const Icon = styled.img`
+    position: absolute;
+    transition: all 0.1s ease-out;
 `

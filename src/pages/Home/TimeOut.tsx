@@ -7,7 +7,7 @@ export const TimeOut = () => {
 
     const refresh = () => {
         second === 1
-            ? console.log("oi") /*navigate('/')*/
+            ? navigate('/')
             : setSecond(second - 1)
     }
 
