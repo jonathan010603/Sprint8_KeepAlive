@@ -40,7 +40,7 @@ export const Day = styled.span`
 export const WeatherContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 6.30vw;
+    width: 7.30vw;
     height: 7.22vh;
     margin-top: 2.31vh;
 `
@@ -56,7 +56,7 @@ export const City = styled.span`
 
 export const Climate = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: 5.64vh;
     font-size: 2.5vw;

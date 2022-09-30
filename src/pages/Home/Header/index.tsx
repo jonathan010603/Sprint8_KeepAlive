@@ -1,6 +1,6 @@
-import { Container, Logo, TimeContainer, Hour, Day, WeatherContainer, City, Climate, Image, Temperature } from './HeaderComponents';
+import { Container, Logo, TimeContainer, Hour, Day, WeatherContainer, City, Climate, Image, Temperature } from './headerComponents';
 import { checkGeoPerms, fetchUrl, getSearchWeather, getStdWeather } from '../../../utils/WeatherApi';
-import { Time } from '../Time';
+import { Time } from './Time';
 import { useEffect, useState } from 'react';
 import LogoDark from './assets/logoDark.svg';
 import Cloudy from "./assets/cloudy.png";
@@ -12,9 +12,11 @@ export const Header = () => {
     })
 
     useEffect(() => {
-        navigator.permissions
-            ? checkGeoPerms().then(r => r ? getSearchWeather(setData) : getStdWeather(setData))
-            : setData(fetchUrl(-15.7801, -47.9292))
+        confirm('Permitir a coleta de dados de geolocalização pela página?')
+            ? navigator.permissions
+                ? checkGeoPerms().then(r => r ? getSearchWeather(setData) : getStdWeather(setData))
+                : getStdWeather(setData)
+            : getStdWeather(setData)
     }, []);
 
     return (

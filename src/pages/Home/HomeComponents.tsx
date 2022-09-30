@@ -20,9 +20,12 @@ export const Content = styled.div`
 `
 
 export const GiantLogo = styled.img`
-    width: 30.8vw;
-    height: 69.3vh;
-    align-self: flex-end;
+    width: 42.96vw;
+    height: 76.38vh;
+    position: fixed;
+    left: -13vw;
+    bottom: 1.5vh;
+    z-index: 1;
 `
 
 export const TextContainer = styled.div`

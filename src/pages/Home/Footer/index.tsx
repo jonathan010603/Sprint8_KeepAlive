@@ -1,6 +1,6 @@
 import { Container, TextContainer, Text, RefreshContainer, RefreshText, SecondsContainer, Seconds, UnderText, NewTabContainer, Logout } from './footerComponents';
 import { useNavigate } from 'react-router-dom';
-import { TimeOut } from '../TimeOut';
+import { TimeOut } from './TimeOut';
 
 export const Footer = () => {
     const navigate = useNavigate();

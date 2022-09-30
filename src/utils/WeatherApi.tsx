@@ -4,27 +4,29 @@ export const checkGeoPerms = async () => {
 }
 
 export const getStdWeather = async (setData: any) => {
-    setData(await fetchUrl(-15.7801, -47.9292))
+    setData(await fetchUrl(-15.78, -47.92))
 };
 
 export const getSearchWeather = async (setData: any) => {
     navigator.geolocation.getCurrentPosition(async position => setData(await fetchUrl(
-        position.coords.latitude,
-        position.coords.longitude
+        position.coords.latitude.toFixed(2),
+        position.coords.longitude.toFixed(2)
     )))
 }
 
 export const fetchUrl = async (lat: any, lon: any) => {
     let result = {}
-    await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9e760fdbd058740ef81e5146dbb7297b`)
+    await fetch(`https://api.weatherapi.com/v1/current.json?key=f78cfb0b1d2944f1803173629220502&q=${lat},${lon}&aqi=no`)
         .then(r => r.json())
         .then(data => {
+            let initials = data.location.region.match(/\b(\w)/g);
+
             result = {
-                city: data.name,
-                temp: data.main.temp - 273.15
+                city: `${data.location.name} - ${initials.join('')}`,
+                temp: parseInt(data.current.feelslike_c)
             }
         })
         .catch(e => console.log(e))
-        
+
     return result;
 }

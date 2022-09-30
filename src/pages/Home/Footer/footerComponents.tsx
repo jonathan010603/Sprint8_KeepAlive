@@ -10,6 +10,7 @@ export const Container = styled.footer`
     height: 12.32vh;
     color: #FFFFFF;
     background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
+    z-index: 2;
 `
 
 export const TextContainer = styled.div`

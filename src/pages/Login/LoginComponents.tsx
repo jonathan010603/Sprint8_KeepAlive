@@ -2,11 +2,6 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 import LoginImage from "./assets/LoginImage.jpg";
 
-const variables = {
-    text: "#E0E0E0",
-    error: "#E9B425"
-}
-
 export const Container = styled.main`
     display: flex;
     width: 100vw;
@@ -42,7 +37,7 @@ export const Content = styled.div`
     margin-top: 18.2vh;
     display: flex;
     flex-direction: column;
-    color: ${variables.text};
+    color: #E0E0E0;
 `
 
 export const Hello = styled.span`
@@ -60,67 +55,6 @@ export const Phrase = styled.span`
     margin-bottom: 12.5vh;
 `
 
-export const FormTitle = styled.span`
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 38px;
-    text-align: left;
-    margin-bottom: 2.9vh;
-`
-
-export const FieldContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 3vh;
-`
-
-export const Field = styled.input`
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    color: ${variables.text};
-    box-sizing: border-box;
-    height: 5.5vh;
-    padding-left: 1.8vw;
-    width: 19.7vw;
-    margin-right: 1vw;
-    border-radius: 50px;
-    background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
-    border: 1px solid;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 20px;
-    text-align: left;
-`
-
-export const Btn = styled.button`
-    cursor: pointer;
-    color: #FFFFFF;
-    padding: 0;
-    margin-top: 3.8vh;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 23px;
-    text-align: center;
-    height: 6.2vh;
-    width: 19.7vw;
-    border-radius: 50px;
-    box-shadow: 5px 5px 15px 0px #00000026 inset;
-    border: 2px solid;
-    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%), 
-    linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
-    border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
-`
-
-export const ErrorMsg = styled.span`
-    color: ${variables.error};
-    font-size: 0.8vw;
-    font-weight: 700;
-    line-height: 1.8vh;
-    text-align: center;
-    margin-left: 3.8vw;
-`
-
 export const Message = () => {
     return (
         <>
@@ -129,14 +63,3 @@ export const Message = () => {
         </>
     );
 }
-
-export const FormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-`
-
-export const Icon = styled.img`
-    position: absolute;
-    transition: all 0.1s ease-out;
-`

@@ -1,14 +1,14 @@
 import { Container, Content, GiantLogo, TextContainer, BigText, FirstText, LittleText, LinesWrapper } from "./HomeComponents";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import circleLogo from './assets/circleLogo.png';
+import circleLogo from './assets/circleLogo.svg';
 
 export const Home = () => {
     return (
         <Container>
             <Header />
             <Content>
-                <GiantLogo src={circleLogo} />
+                <GiantLogo src={circleLogo}/>
                 <TextContainer>
                     <LinesWrapper>
                         <FirstText>Our mission is</FirstText>
