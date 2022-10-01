@@ -16,7 +16,7 @@ export const Footer = () => {
                 </Text>
             </TextContainer>
             <RefreshContainer>
-                <RefreshText>Application refresh in</RefreshText>
+                <RefreshText>Application<br />refresh in</RefreshText>
                 <SecondsContainer>
                     <Seconds>{TimeOut()}</Seconds>
                     <UnderText>seconds</UnderText>

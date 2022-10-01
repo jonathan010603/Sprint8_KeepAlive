@@ -1,5 +1,5 @@
 import { Container, Logo, TimeContainer, Hour, Day, WeatherContainer, City, Climate, Image, Temperature } from './headerComponents';
-import { checkGeoPerms, fetchUrl, getSearchWeather, getStdWeather } from '../../../utils/WeatherApi';
+import { checkGeoPerms, getSearchWeather, getStdWeather } from '../../../utils/WeatherApi';
 import { Time } from './Time';
 import { useEffect, useState } from 'react';
 import LogoDark from './assets/logoDark.svg';

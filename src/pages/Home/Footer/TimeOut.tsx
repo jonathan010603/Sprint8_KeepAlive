@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export const TimeOut = () => {
-    const [second, setSecond] = useState(60);
+    const [second, setSecond] = useState(3600);
     const navigate = useNavigate();
 
     const refresh = () => {

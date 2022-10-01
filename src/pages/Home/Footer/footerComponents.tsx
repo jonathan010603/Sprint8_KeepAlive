@@ -11,7 +11,13 @@ export const Container = styled.footer`
     color: #FFFFFF;
     background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
     z-index: 2;
-`
+    overflow: hidden;
+
+    @media screen and (min-width: 0px) {
+        height: 50vh;
+        flex-wrap: wrap;
+    }
+ `
 
 export const TextContainer = styled.div`
     display: flex;
@@ -21,22 +27,56 @@ export const TextContainer = styled.div`
     margin-top: 1.57vh;
     text-align: right;
     border-right: 1px solid #FFFFFF;
+
+    @media screen and (min-width: 0px) {
+        align-self: center;
+        width: 98vw;
+        margin-left: 0;
+        margin-top: 2vh;
+        border: none;
+        justify-content: center;
+    }
 `
 
 export const Text = styled.span`
     font-size: 0.6vw;
     font-weight: 300;
-    margin-top: 1.48vh;
-    margin-right: 1.82vw;
+    margin-top: 0;
+    margin-right: 0;
+
+    @media screen and (min-width: 0px) {
+        align-self: center;
+        font-size: 13px;
+    }
+    
+    @media screen and (min-width: 425px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 600px) {
+        font-size: 19px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    }
 `
 
 export const RefreshContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 12.44vw;
     height: 6.66vh;
     margin-left: 6.4vw;
     margin-top: 0.8vh;
+
+    @media screen and (min-width: 0px) {
+        width: 100vw;
+        margin-left: 1.5vw;
+        margin-top: 2.5vh;
+        line-height: 20px;
+        align-items: center;
+    }
 `
 
 export const RefreshText = styled.div`
@@ -47,6 +87,23 @@ export const RefreshText = styled.div`
     line-height: 1.66vh;
     text-align: right;
     margin-top: 2.4vh;
+
+    @media screen and (min-width: 0px) {
+        align-self: center;
+        margin: 0;
+        font-size: 13px;
+        line-height: 20px;
+        width: 25vw;
+        height: auto;
+    }
+
+    @media screen and (min-width: 425px) {
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 26px;
+    }
 `
 
 export const SecondsContainer = styled.div`
@@ -54,14 +111,34 @@ export const SecondsContainer = styled.div`
     flex-direction: column;
     width: 5.05vw;
     height: 6.57vh;
+
+    @media screen and (min-width: 0px) {
+        margin-left: 3vw;
+        align-self: center;
+        width: 25vw;
+        height: auto;
+    }
 `
 
 export const Seconds = styled.span`
     font-size: 2.5vw;
     font-weight: 700;
     line-height: 4vh;
-    margin-top: 1.29vh;
+    margin-top: 0;
     text-align: center;
+
+    @media screen and (min-width: 0px) {
+        font-size: 30px
+    }
+
+    @media screen and (min-width: 425px) {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 50px;
+    }
 `
 
 export const UnderText = styled.span`
@@ -69,6 +146,19 @@ export const UnderText = styled.span`
     font-weight: 300;
     line-height: 1.66vh;
     text-align: center;
+
+    @media screen and (min-width: 0px) {
+        font-size: 15px;
+    }
+
+    @media screen and (min-width: 425px) {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 `
 
 export const NewTabContainer = styled.button`
@@ -85,7 +175,25 @@ export const NewTabContainer = styled.button`
     justify-content: center;
     background-color: #FFFFFF;
     border: none;
-    color: ${variables.newTab}
+    color: ${variables.newTab};
+
+    @media screen and (min-width: 0px) {
+        height: 35%;
+        width: 50vw;
+        margin: 0;
+        align-self: flex-end;
+        font-size: 16px;
+        line-height: 20px;
+        align-items: center;
+    }
+
+    @media screen and (min-width: 600px) {
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    }
 `
 
 export const Logout = styled.button`
@@ -102,4 +210,21 @@ export const Logout = styled.button`
     justify-content: center;
     background-color: transparent;
     border: none;
+
+    @media screen and (min-width: 0px) {
+        height: 35%;
+        width: 50vw;
+        margin: 0;
+        align-self: flex-end;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media screen and (min-width: 600px) {
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    }
 `
