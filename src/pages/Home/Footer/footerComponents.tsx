@@ -13,6 +13,16 @@ export const Container = styled.footer`
     z-index: 2;
     overflow: hidden;
 
+    @media screen and (max-height: 600px) {
+        height: 50vh !important;
+        flex-wrap: wrap !important;
+    }
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        height: 25vh !important;
+        flex-wrap: nowrap !important;
+    }
+
     @media screen and (max-width: 1024px) {
         height: 50vh;
         flex-wrap: wrap;
@@ -32,7 +42,8 @@ export const TextContainer = styled.div`
         align-self: flex-start;
         width: 98vw;
         margin-left: 0;
-        margin-top: 1vh;
+        margin-top: auto;
+        margin-bottom: auto;
         height: auto;
         border: none;
         justify-content: center;
@@ -42,8 +53,12 @@ export const TextContainer = styled.div`
 export const Text = styled.span`
     font-size: 0.6vw;
     font-weight: 300;
-    margin-top: 0;
-    margin-right: 0;
+    margin-top: 1.48vh;
+    margin-right: 1.82vw;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 8px !important;
+    }
 
     @media screen and (max-width: 1024px) {
         align-self: center;
@@ -59,7 +74,7 @@ export const Text = styled.span`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 `
 
@@ -89,6 +104,11 @@ export const RefreshText = styled.div`
     text-align: right;
     margin-top: 2.4vh;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 9px !important;
+        line-height: 10px !important;
+    }
+
     @media screen and (max-width: 1024px) {
         align-self: center;
         margin: 0;
@@ -114,7 +134,7 @@ export const SecondsContainer = styled.div`
     height: 6.57vh;
 
     @media screen and (max-width: 1024px) {
-        margin-left: 3vw;
+        margin-left: 1vw;
         align-self: center;
         width: auto;
         height: auto;
@@ -125,8 +145,13 @@ export const Seconds = styled.span`
     font-size: 2.5vw;
     font-weight: 700;
     line-height: 4vh;
-    margin-top: 0;
+    margin-top: 1.29vh;
     text-align: center;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 20px !important;
+        line-height: 20px !important;
+    }
 
     @media screen and (max-width: 1024px) {
         font-size: 30px
@@ -146,6 +171,10 @@ export const UnderText = styled.span`
     font-weight: 300;
     line-height: 1.66vh;
     text-align: center;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 10px !important;
+    }
 
     @media screen and (max-width: 424px) {
         font-size: 15px;
@@ -177,6 +206,12 @@ export const NewTabContainer = styled.button`
     border: none;
     color: ${variables.newTab};
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        height: 100% !important;
+        font-size: 9px !important;
+        line-height: 15px !important;
+    }
+
     @media screen and (max-width: 1024px) {
         height: 30%;
         width: 50vw;
@@ -192,7 +227,7 @@ export const NewTabContainer = styled.button`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 24px;
+        font-size: 22px;
     }
 `
 
@@ -211,6 +246,12 @@ export const Logout = styled.button`
     background-color: transparent;
     border: none;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        height: 100% !important;
+        font-size: 9px !important;
+        line-height: 15px !important;
+    }
+
     @media screen and (max-width: 1024px) {
         height: 30%;
         width: 50vw;
@@ -225,6 +266,6 @@ export const Logout = styled.button`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 24px;
+        font-size: 22px;
     }
 `

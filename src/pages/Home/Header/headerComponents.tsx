@@ -7,6 +7,15 @@ export const Container = styled.header`
     width: 95.7vw;
     height: 15.6vh;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        align-items: flex-start !important;
+        width: auto !important;
+        margin-left: 1vw! important;
+        margin-right: auto !important;
+        flex-direction: row !important;
+        height: auto !important;
+    }
+
     @media screen and (max-width: 1024px) {
         flex-direction: column;
         align-items: center;
@@ -17,6 +26,11 @@ export const Logo = styled.img`
     width: 7.81vw;
     height: 3.95vh;
     margin-top: 2.31vh;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        width: auto !important;
+        height: auto !important;
+    }
 
     @media screen and (max-width: 1024px) {
         width: 80vw;
@@ -58,6 +72,14 @@ export const WeatherContainer = styled.div`
     height: 7.22vh;
     margin-top: 2.31vh;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        width: auto !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-left: 5vw !important;
+        margin-top: 5.6vh !important;
+    }
+
     @media screen and (max-width: 1024px) {
         margin-top: 2vh;
         width: auto;
@@ -72,6 +94,12 @@ export const City = styled.span`
     font-weight: 400;
     line-height: 1.66vh;
     text-align: center;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 2vw !important;
+        width: auto !important;
+        line-height: 100% !important;
+    }
 
     @media screen and (max-width: 1024px) {
         width: auto;
@@ -94,6 +122,12 @@ export const Climate = styled.div`
     text-align: center;
     line-height: 5.64vh;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        width: auto !important;
+        margin-left: 1vw !important;
+        line-height: 100% !important;
+    }
+
     @media screen and (max-width: 1024px) {
         height: auto;   
         margin-top: 1vh;
@@ -104,6 +138,11 @@ export const Image = styled.img`
     width: 1.77vw;
     height: 3.14vh;
     margin-top: 1.11vh;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        width: 2vw !important;
+        height: 5vh !important;
+    }
 
     @media screen and (max-width: 1024px) {
         margin: 0;
@@ -125,6 +164,10 @@ export const Image = styled.img`
 export const Temperature = styled.span`
     width: 3.9vw;
     height: 5.64vh;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 18px !important;
+    }
 
     @media screen and (max-width: 1024px) {
         width: auto;

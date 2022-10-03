@@ -27,6 +27,10 @@ export const GiantLogo = styled.img`
     bottom: 1.5vh;
     z-index: 1;
 
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        display:none;
+    }
+
     @media screen and (max-width: 424px) {
         width: 60vw;
         height: 80vh;
@@ -64,6 +68,10 @@ export const TextContainer = styled.div`
     margin-top: 15.3vh;
     margin-left: auto;
     margin-right: 6.9vw; 
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-top: 3.5vh !important;
+    }
     
     @media screen and (max-width: 1024px) {
         margin-right: 2vw; 
@@ -81,6 +89,12 @@ export const BigText = styled.span`
     text-align: right;
     line-height: 6.2vh;
     color: ${variables.bigText};
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-top: 3vh !important;
+        font-size: 3.8vw !important;
+        line-height: 15px !important; 
+    }
 
     @media screen and (max-width: 424px) {
         font-size: 6.42vw;
@@ -123,6 +137,10 @@ export const LittleText = styled.span`
     font-weight: 400;
     text-align: right;
     color: ${variables.littleText};
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 2vw !important;
+    }
 
     @media screen and (max-width: 767px) {
         font-size: 3.92vw;
