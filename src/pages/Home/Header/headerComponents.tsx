@@ -7,7 +7,7 @@ export const Container = styled.header`
     width: 95.7vw;
     height: 15.6vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         flex-direction: column;
         align-items: center;
     }
@@ -18,7 +18,7 @@ export const Logo = styled.img`
     height: 3.95vh;
     margin-top: 2.31vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         width: 80vw;
         height: 10vh;
     }
@@ -31,7 +31,7 @@ export const TimeContainer = styled.div`
     width: 17.03vw;
     height: 15.64vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         display: none;
     }
 `
@@ -58,7 +58,7 @@ export const WeatherContainer = styled.div`
     height: 7.22vh;
     margin-top: 2.31vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         margin-top: 2vh;
         width: auto;
         height: auto;
@@ -73,18 +73,14 @@ export const City = styled.span`
     line-height: 1.66vh;
     text-align: center;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         width: auto;
         height: auto;
         font-size: 15px;
     }
 
-    @media screen and (min-width: 425px) {
-        font-size: 18px;
-    }
-
-    @media screen and (min-width: 425px) {
-        font-size: 25px;
+    @media screen and (min-width: 425px) and (max-width: 1024px) {
+        font-size: 20px;
     }
 `
 
@@ -98,8 +94,9 @@ export const Climate = styled.div`
     text-align: center;
     line-height: 5.64vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         height: auto;   
+        margin-top: 1vh;
     }
 `
 
@@ -108,19 +105,19 @@ export const Image = styled.img`
     height: 3.14vh;
     margin-top: 1.11vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         margin: 0;
-        width: 10vw;
+        width: 7vw;
         height: 5vh;
     }
 
-    @media screen and (min-width: 425px) {
-        width: 6vw;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        width: 4.5vw;
         height: 5vh;
     }
 
-    media screen and (min-width: 768px) {
-        width: 5vw;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 3vw;
         height: 5vh;
     }
 `
@@ -129,17 +126,9 @@ export const Temperature = styled.span`
     width: 3.9vw;
     height: 5.64vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         width: auto;
         height: auto;
         font-size: 35px;
-    }
-
-    @media screen and (min-width: 425px) {
-        font-size: 43px;
-    }
-
-    @media screen and (min-width: 425px) {
-        font-size: 55px;
     }
 `

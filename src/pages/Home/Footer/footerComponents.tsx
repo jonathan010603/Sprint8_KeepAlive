@@ -13,7 +13,7 @@ export const Container = styled.footer`
     z-index: 2;
     overflow: hidden;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         height: 50vh;
         flex-wrap: wrap;
     }
@@ -28,11 +28,12 @@ export const TextContainer = styled.div`
     text-align: right;
     border-right: 1px solid #FFFFFF;
 
-    @media screen and (min-width: 0px) {
-        align-self: center;
+    @media screen and (max-width: 1024px) {
+        align-self: flex-start;
         width: 98vw;
         margin-left: 0;
-        margin-top: 2vh;
+        margin-top: 1vh;
+        height: auto;
         border: none;
         justify-content: center;
     }
@@ -44,21 +45,21 @@ export const Text = styled.span`
     margin-top: 0;
     margin-right: 0;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         align-self: center;
         font-size: 13px;
     }
     
-    @media screen and (min-width: 425px) {
+    @media screen and (min-width: 425px) and (max-width: 599px) {
         font-size: 16px;
     }
 
-    @media screen and (min-width: 600px) {
-        font-size: 19px;
+    @media screen and (min-width: 600px) and (max-width: 767px) {
+        font-size: 17px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 24px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 20px;
     }
 `
 
@@ -70,10 +71,10 @@ export const RefreshContainer = styled.div`
     margin-left: 6.4vw;
     margin-top: 0.8vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         width: 100vw;
-        margin-left: 1.5vw;
-        margin-top: 2.5vh;
+        align-self: center;
+        margin: auto;
         line-height: 20px;
         align-items: center;
     }
@@ -88,21 +89,21 @@ export const RefreshText = styled.div`
     text-align: right;
     margin-top: 2.4vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         align-self: center;
         margin: 0;
         font-size: 13px;
         line-height: 20px;
-        width: 25vw;
+        width: auto;
         height: auto;
     }
 
-    @media screen and (min-width: 425px) {
-        font-size: 20px;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 14px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 26px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 20px;
     }
 `
 
@@ -112,10 +113,10 @@ export const SecondsContainer = styled.div`
     width: 5.05vw;
     height: 6.57vh;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         margin-left: 3vw;
         align-self: center;
-        width: 25vw;
+        width: auto;
         height: auto;
     }
 `
@@ -127,17 +128,16 @@ export const Seconds = styled.span`
     margin-top: 0;
     text-align: center;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         font-size: 30px
     }
 
-    @media screen and (min-width: 425px) {
-        font-size: 40px;
-        text-align: left;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 33px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 50px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 40px;
     }
 `
 
@@ -147,17 +147,17 @@ export const UnderText = styled.span`
     line-height: 1.66vh;
     text-align: center;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 424px) {
         font-size: 15px;
     }
 
-    @media screen and (min-width: 425px) {
-        font-size: 20px;
-        text-align: left;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 17px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 28px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        line-height: 20px;
+        font-size: 20px;
     }
 `
 
@@ -177,8 +177,8 @@ export const NewTabContainer = styled.button`
     border: none;
     color: ${variables.newTab};
 
-    @media screen and (min-width: 0px) {
-        height: 35%;
+    @media screen and (max-width: 1024px) {
+        height: 30%;
         width: 50vw;
         margin: 0;
         align-self: flex-end;
@@ -187,11 +187,11 @@ export const NewTabContainer = styled.button`
         align-items: center;
     }
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 600px) and (max-width: 767px) {
         font-size: 20px;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         font-size: 24px;
     }
 `
@@ -211,8 +211,8 @@ export const Logout = styled.button`
     background-color: transparent;
     border: none;
 
-    @media screen and (min-width: 0px) {
-        height: 35%;
+    @media screen and (max-width: 1024px) {
+        height: 30%;
         width: 50vw;
         margin: 0;
         align-self: flex-end;
@@ -220,11 +220,11 @@ export const Logout = styled.button`
         line-height: 20px;
     }
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 600px) and (max-width: 767px) {
         font-size: 20px;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         font-size: 24px;
     }
 `

@@ -27,7 +27,7 @@ export const GiantLogo = styled.img`
     bottom: 1.5vh;
     z-index: 1;
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 424px) {
         width: 60vw;
         height: 80vh;
         left: -20vw;
@@ -36,19 +36,22 @@ export const GiantLogo = styled.img`
         min-height: 600px;
     }
 
-    @media screen and (min-width: 425px) {
-        top: 36vh;
-        min-height: 730px;
+    @media screen and (min-width: 425px) and (max-width: 599px) {
+        top: 30vh;
+        min-height: 550px;
+        left: -20vw;
     }
 
-    @media screen and (min-width: 600px) {
-        top: 42vh;
-        min-height: 800px;
+    @media screen and (min-width: 600px) and (max-width: 767px) {
+        top: 35vh;
+        min-height: 520px;
+        left: -20vw;
     }
 
-    @media screen and (min-width: 768px) {
-        top: 42vh;
-        min-height: 800px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        top: 25vh;
+        min-height: 550px;
+        left: -20vw;
     }
 `
 
@@ -62,7 +65,7 @@ export const TextContainer = styled.div`
     margin-left: auto;
     margin-right: 6.9vw; 
     
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 1024px) {
         margin-right: 2vw; 
         margin-top: 7vh;
         width: auto;
@@ -79,18 +82,19 @@ export const BigText = styled.span`
     line-height: 6.2vh;
     color: ${variables.bigText};
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 424px) {
         font-size: 6.42vw;
         line-height: 13px;
     }
     
-    @media screen and (min-width: 425px) {
-        line-height: 40px;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 5.3vw;
+        line-height: 25px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 45px;
-        line-height: 40px;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 4vw;
+        line-height: 30px;
     }
 `
 
@@ -101,12 +105,16 @@ export const FirstText = styled(BigText)`
     text-align: right;
     color: ${variables.bigText};
 
-    @media screen and (min-width: 0px) {
-        font-size: 5.35vw;
+    @media screen and (max-width: 424px) {
+        font-size: 4.5vw;
     }
-    
-    @media screen and (min-width: 0px) {
-        font-size: 35px;
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 4vw;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 3.5vw;
     }
 `
 
@@ -116,12 +124,16 @@ export const LittleText = styled.span`
     text-align: right;
     color: ${variables.littleText};
 
-    @media screen and (min-width: 0px) {
+    @media screen and (max-width: 767px) {
         font-size: 3.92vw;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 25px;
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        font-size: 3vw;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 2.8vw;
     }
 `
 
