@@ -7,6 +7,12 @@ export const Container = styled.main`
     width: 100vw;
     height: 100vh;
     font-family: Mark Pro;
+    overflow: hidden;
+
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const RightSide = styled.div`
@@ -17,6 +23,10 @@ export const RightSide = styled.div`
     height: 100%;
     background-image: url(${LoginImage});
     background-size: cover;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `
 
 export const LogoTop = styled.img`
@@ -25,12 +35,28 @@ export const LogoTop = styled.img`
     height: 6.38vh;
 `
 
+
 export const LeftSide = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
+display: flex;
+justify-content: center;
+width: 50%;
+height: 100%;
+background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
+
+@media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+`
+export const LogoTopLeft = styled.img`
+    margin-top: 3.24vh;
+    width: 90vw;
+    height: 6.38vh;
+
+    @media screen and (min-width: 501px) {
+        display: none;
+    }
 `
 
 export const Content = styled.div`
@@ -38,6 +64,14 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     color: #E0E0E0;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-top: 7vh !important;
+    }
+
+    @media screen and (max-width: 500px) {
+        align-items: center;
+    }
 `
 
 export const Hello = styled.span`
@@ -45,6 +79,16 @@ export const Hello = styled.span`
     font-weight: 300;
     line-height: 76px;
     text-align: left;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        line-height: 40px;
+        font-size: 5vw !important;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 40px;
+        align-self: flex-start;
+    }
 `
 
 export const Phrase = styled.span`
@@ -52,7 +96,17 @@ export const Phrase = styled.span`
     font-weight: 300;
     line-height: 20px;
     text-align: left;
-    margin-bottom: 12.5vh;
+    margin-bottom: 10vh;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-bottom: 4vh;
+        font-size: 12px !important;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 3.9vw;
+        align-self: flex-start;
+    }
 `
 
 export const Message = () => {

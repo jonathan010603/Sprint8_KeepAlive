@@ -9,9 +9,9 @@ export const Container = styled.header`
 
     @media screen and (max-width: 768px) and (max-height: 500px) {
         align-items: flex-start !important;
-        width: auto !important;
-        margin-left: 1vw! important;
-        margin-right: auto !important;
+        width: 96.1vw !important;
+        //margin-left: 1vw! important;
+        //margin-right: auto !important;
         flex-direction: row !important;
         height: auto !important;
     }

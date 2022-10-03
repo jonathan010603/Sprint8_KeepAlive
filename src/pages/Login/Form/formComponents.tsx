@@ -21,6 +21,15 @@ export const FormTitle = styled.span`
     line-height: 38px;
     text-align: left;
     margin-bottom: 2.9vh;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-bottom: 2vh;
+        font-size: 15px !important;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 7vw;
+    }
 `
 
 export const FieldContainer = styled.div`
@@ -28,6 +37,8 @@ export const FieldContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 3vh;
+    width: 100%;
+
 `
 
 export const Field = styled.input<booleanProps>`
@@ -40,18 +51,36 @@ export const Field = styled.input<booleanProps>`
     width: 19.7vw;
     margin-right: 1vw;
     border-radius: 50px;
-    background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    padding: 0 3.04vw 0 1.04vw;
     border: 1px solid ${p => p.bool ? '#E9B425' : '#FFFFFF'};
+    background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
     text-align: left;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 10px;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 0 13vw 0 3.04vw;
+        width: 70vw;
+    }
 `
 
 export const Icon = styled.img<booleanProps>`
-position: absolute;
-transition: all 0.1s ease-out;
-left: ${p => p.bool ? '17.5vw' : '20.67vw'}
+    position: absolute;
+    transition: all 0.1s ease-out;
+    left: ${p => p.bool ? '17.5vw' : '20.67vw'};
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        width: 10px;
+    }
+
+    @media screen and (max-width: 500px) {
+        left: ${p => p.bool ? '59vw' : '72vw'};
+    }
 `
 
 export const ErrorMsg = styled.span<booleanProps>`
@@ -61,7 +90,12 @@ export const ErrorMsg = styled.span<booleanProps>`
     line-height: 1.8vh;
     text-align: center;
     margin-left: 3.8vw;
-    visibility: ${p => p.bool ? 'visible' : 'hidden'}
+    visibility: ${p => p.bool ? 'visible' : 'hidden'};
+
+    @media screen and (max-width: 500px) {
+        margin-left: 7.5vw;
+        font-size: 4.5vw;
+    }
 `
 
 export const Btn = styled.button`
@@ -81,4 +115,15 @@ export const Btn = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%), 
     linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
     border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 80vw;
+    }
 `
