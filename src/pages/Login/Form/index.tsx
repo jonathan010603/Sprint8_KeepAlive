@@ -10,21 +10,25 @@ export const Form = () => {
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
     const [error, setError] = useState(false);
-    const [inputFocus, setFocus] = useState(false);
+    const [userFocus, setUserFocus] = useState(false);
+    const [passFocus, setPassFocus] = useState(false);
     const [input, setInput] = useState({
         username: '',
         password: ''
     });
 
-    const onUsernameChange = (e: any) => {
-        focused(usernameRef, passwordRef, setFocus);
+    const checkFocus = () => {
+        focused(usernameRef, passwordRef, setUserFocus, setPassFocus)
         setError(false);
+    };
+
+    const onUsernameChange = (e: any) => {
+        checkFocus();
         setInput({ ...input, username: e.target.value });
     }
 
     const onPasswordChange = (e: any) => {
-        focused(usernameRef, passwordRef, setFocus);
-        setError(false);
+        checkFocus();
         setInput({ ...input, password: e.target.value });
     }
 
@@ -45,7 +49,7 @@ export const Form = () => {
                     ref={usernameRef}
                     onInput={onUsernameChange}
                 />
-                <Icon src={UserIcon} bool={inputFocus} />
+                <Icon src={UserIcon} bool={userFocus} />
             </FieldContainer>
 
             <FieldContainer>
@@ -55,7 +59,7 @@ export const Form = () => {
                     ref={passwordRef}
                     onInput={onPasswordChange}
                 />
-                <Icon src={PasswordIcon} bool={inputFocus} />
+                <Icon src={PasswordIcon} bool={passFocus} />
             </FieldContainer>
 
             <ErrorMsg bool={error}>

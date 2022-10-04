@@ -13,11 +13,11 @@ export const validateInputs = (input: IuserInput, e: React.MouseEvent<Element, M
     return input.password.length >= 6;
 }
 
-export const focused = (uRef: any, pRef: any, focusHandler: any) => {
-    document.activeElement === uRef.current || pRef.current
-        ? focusHandler(true)
-        : focusHandler(false)
+export const focused = (uRef: any, pRef: any, userHandler: any, pwHandler: any) => {
 
-    uRef.current.value === '' && pRef.current.value === ''
-        && focusHandler(false);
+    document.activeElement === uRef.current ? userHandler(true) : userHandler(false)
+    uRef.current.value === '' && userHandler(false);
+    
+    document.activeElement === pRef.current ? pwHandler(true) : pwHandler(false)
+    pRef.current.value === '' && pwHandler(false);
 }

@@ -65,7 +65,7 @@ export const Content = styled.div`
     flex-direction: column;
     color: #E0E0E0;
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
+    @media screen and (max-height: 500px) {
         margin-top: 7vh !important;
     }
 
