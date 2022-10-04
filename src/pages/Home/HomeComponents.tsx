@@ -11,6 +11,7 @@ export const Container = styled.main`
     width: 100vw;
     height: 100vh;
     font-family: Mark Pro;
+    background-color: white;
 `
 
 export const Content = styled.div`

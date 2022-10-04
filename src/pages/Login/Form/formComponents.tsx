@@ -27,7 +27,7 @@ export const FormTitle = styled.span`
         font-size: 15px !important;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         font-size: 7vw;
     }
 `
@@ -60,11 +60,14 @@ export const Field = styled.input<booleanProps>`
     line-height: 20px;
     text-align: left;
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
+    @media screen and (max-height: 500px) {
+        margin-right: 0;
+        width: 100%;;
         font-size: 10px;
+        height: 10vh;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         padding: 0 13vw 0 3.04vw;
         width: 80vw;
     }
@@ -76,8 +79,12 @@ export const Icon = styled.img<booleanProps>`
     left: ${p => p.bool ? '17.5vw' : '20.67vw'};
     width: 10px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         left: ${p => p.bool ? '70vw' : '81.5vw'};
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 900px) and (max-height: 500px) {
+        left: ${p => p.bool ? '21vw' : '21vw'};
     }
 `
 
@@ -90,9 +97,10 @@ export const ErrorMsg = styled.span<booleanProps>`
     margin-left: 3.8vw;
     visibility: ${p => p.bool ? 'visible' : 'hidden'};
 
-    @media screen and (max-width: 500px) {
-        margin-left: 7.5vw;
-        font-size: 4.5vw;
+    @media screen and (max-width: 767px) {
+        margin-left: 12vw;
+        font-size: 3.6vw;
+        visibility: hidden;
     }
 `
 
@@ -114,6 +122,11 @@ export const Btn = styled.button`
     linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
     border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
 
+    @media screen and (max-height: 500px) {
+        width: 100%;
+        height: 10vh;
+    }
+
     @media screen and (max-width: 768px) and (max-height: 500px) {
         display:flex;
         justify-content: center;
@@ -121,7 +134,8 @@ export const Btn = styled.button`
         font-size: 10px;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         width: 80vw;
+        margin-top: 0 !important;
     }
 `

@@ -9,7 +9,7 @@ export const Container = styled.main`
     font-family: Mark Pro;
     overflow: hidden;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         flex-direction: column;
         align-items: center;
     }
@@ -24,8 +24,12 @@ export const RightSide = styled.div`
     background-image: url(${LoginImage});
     background-size: cover;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         display: none;
+    }
+    
+    @media screen and (max-height: 500px) {
+        display: none !important;
     }
 `
 
@@ -43,7 +47,13 @@ width: 50%;
 height: 100%;
 background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@media screen and (max-height: 500px) {
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -54,8 +64,15 @@ export const LogoTopLeft = styled.img`
     width: 90vw;
     height: 6.38vh;
 
-    @media screen and (min-width: 501px) {
-        display: none;
+    @media screen and (min-width: 768px) {
+        display: none !important;
+    }
+
+    @media screen and (max-height: 767px) {
+        margin-top: 1vh;
+        height: 13vh;
+        display: flex;
+        width: 80vw;
     }
 `
 
@@ -66,10 +83,10 @@ export const Content = styled.div`
     color: #E0E0E0;
 
     @media screen and (max-height: 500px) {
-        margin-top: 7vh !important;
+        margin-top: 0;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         align-items: center;
     }
 `
@@ -80,12 +97,12 @@ export const Hello = styled.span`
     line-height: 76px;
     text-align: left;
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
-        line-height: 40px;
-        font-size: 5vw !important;
+    @media screen and (max-height: 500px) {
+        line-height: 35px;
+        font-size: 4vw !important;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
         font-size: 40px;
         align-self: flex-start;
     }
@@ -98,13 +115,23 @@ export const Phrase = styled.span`
     text-align: left;
     margin-bottom: 10vh;
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-bottom: 4vh;
+    @media screen and (max-height: 500px) {
+        margin-bottom: 2vh;
         font-size: 12px !important;
     }
 
-    @media screen and (max-width: 500px) {
+    /*@media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-bottom: 4vh;
+        font-size: 12px !important;
+    }*/
+
+    @media screen and (max-width: 767px) {
         font-size: 3.9vw;
+        align-self: flex-start;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1700px) {
+        font-size: 1.2vw;
         align-self: flex-start;
     }
 `
