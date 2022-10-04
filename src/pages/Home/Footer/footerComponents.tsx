@@ -113,7 +113,7 @@ export const RefreshText = styled.div`
         align-self: center;
         margin: 0;
         font-size: 13px;
-        line-height: 20px;
+        line-height: 15px;
         width: auto;
         height: auto;
     }
@@ -154,7 +154,7 @@ export const Seconds = styled.span`
     }
 
     @media screen and (max-width: 1024px) {
-        font-size: 30px
+        font-size: 25px
     }
 
     @media screen and (min-width: 425px) and (max-width: 767px) {
@@ -177,7 +177,7 @@ export const UnderText = styled.span`
     }
 
     @media screen and (max-width: 424px) {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     @media screen and (min-width: 425px) and (max-width: 767px) {
