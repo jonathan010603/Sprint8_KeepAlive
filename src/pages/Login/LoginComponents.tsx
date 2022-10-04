@@ -92,7 +92,7 @@ export const Hello = styled.span`
 `
 
 export const Phrase = styled.span`
-    font-size: 16px;
+    font-size: 0.8vw;
     font-weight: 300;
     line-height: 20px;
     text-align: left;

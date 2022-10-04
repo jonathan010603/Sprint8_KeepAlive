@@ -54,6 +54,7 @@ export const Field = styled.input<booleanProps>`
     padding: 0 3.04vw 0 1.04vw;
     border: 1px solid ${p => p.bool ? '#E9B425' : '#FFFFFF'};
     background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    outline: none;
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
@@ -65,7 +66,7 @@ export const Field = styled.input<booleanProps>`
 
     @media screen and (max-width: 500px) {
         padding: 0 13vw 0 3.04vw;
-        width: 70vw;
+        width: 80vw;
     }
 `
 
@@ -73,13 +74,10 @@ export const Icon = styled.img<booleanProps>`
     position: absolute;
     transition: all 0.1s ease-out;
     left: ${p => p.bool ? '17.5vw' : '20.67vw'};
-
-    @media screen and (max-width: 768px) and (max-height: 500px) {
-        width: 10px;
-    }
+    width: 10px;
 
     @media screen and (max-width: 500px) {
-        left: ${p => p.bool ? '59vw' : '72vw'};
+        left: ${p => p.bool ? '70vw' : '81.5vw'};
     }
 `
 
