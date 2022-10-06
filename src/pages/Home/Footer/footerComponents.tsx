@@ -58,11 +58,13 @@ export const Text = styled.span`
 
     @media screen and (max-width: 768px) and (max-height: 500px) {
         font-size: 8px !important;
+        margin: 0 !important;
     }
 
     @media screen and (max-width: 1024px) {
         align-self: center;
         font-size: 3.4vw;
+        margin: 0;
     }
     
     @media screen and (min-width: 425px) and (max-width: 599px) {

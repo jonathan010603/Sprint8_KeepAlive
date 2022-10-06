@@ -71,7 +71,7 @@ export const TextContainer = styled.div`
     margin-right: 6.9vw; 
 
     @media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-top: 3.5vh !important;
+        margin-top: 0 !important;
     }
     
     @media screen and (max-width: 1024px) {
@@ -94,12 +94,12 @@ export const BigText = styled.span`
     @media screen and (max-width: 768px) and (max-height: 500px) {
         margin-top: 3vh !important;
         font-size: 3.8vw !important;
-        line-height: 15px !important; 
+        line-height: 20px !important; 
     }
 
     @media screen and (max-width: 424px) {
         font-size: 6.42vw;
-        line-height: 13px;
+        line-height: 25px;
     }
     
     @media screen and (min-width: 425px) and (max-width: 767px) {
