@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const variables = {
     text: "#E0E0E0",
-    error: "#E9B425"
+    error: "#E9B425",
+    register: "#0081EE"
 }
 
 type booleanProps = {
@@ -137,5 +138,29 @@ export const Btn = styled.button`
     @media screen and (max-width: 767px) {
         width: 80vw;
         margin-top: 0 !important;
+    }
+`
+
+export const RegisterLink = styled.span`
+    font-size: 0.8vw;
+    font-weight: 300;
+    line-height: 1.8vh;
+    text-align: center;
+    align-self: center;
+    margin-right: 1vw;
+    margin-top: 2vh;
+
+    span {
+        color: ${variables.register};
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        margin-top: 25px;
+        font-size: 2.5vw !important;
+    }
+
+    @media screen and (max-width: 767px) {
+        font-size: 3.6vw;
     }
 `

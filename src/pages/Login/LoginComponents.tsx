@@ -7,9 +7,15 @@ export const Container = styled.main`
     width: 100vw;
     height: 100vh;
     font-family: Mark Pro;
-    overflow: hidden;
 
+    @media screen and (max-width: 379px) {
+        min-height: 700px ;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     @media screen and (max-width: 767px) {
+        min-height: 400px;
         flex-direction: column;
         align-items: center;
     }
@@ -87,6 +93,8 @@ export const Content = styled.div`
     }
 
     @media screen and (max-width: 767px) {
+        margin-top: 9vh;
+        margin-bottom: auto;
         align-items: center;
     }
 `

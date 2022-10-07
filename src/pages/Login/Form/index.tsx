@@ -1,9 +1,10 @@
 import UserIcon from "../assets/UserIcon.svg";
 import PasswordIcon from "../assets/PasswordIcon.svg";
-import { focused, validateInputs } from "../../../utils/ValidateInputs";
+import { focused, validateInputs } from "./ValidateLogin";
 import { useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
-import { FormContainer, FormTitle, FieldContainer, Field, Icon, ErrorMsg, Btn } from "./formComponents";
+import { useEffect, useRef, useState } from "react";
+import { FormContainer, FormTitle, FieldContainer, Field, Icon, ErrorMsg, Btn, RegisterLink } from "./formComponents";
+import { loginHandler } from "./helpers";
 
 export const Form = () => {
     const navigate = useNavigate();
@@ -17,18 +18,11 @@ export const Form = () => {
         password: ''
     });
 
-    const checkFocus = () => {
-        focused(usernameRef, passwordRef, setUserFocus, setPassFocus)
-        setError(false);
-    };
-
     const onUsernameChange = (e: any) => {
-        checkFocus();
         setInput({ ...input, username: e.target.value });
     }
 
     const onPasswordChange = (e: any) => {
-        checkFocus();
         setInput({ ...input, password: e.target.value });
     }
 
@@ -38,12 +32,18 @@ export const Form = () => {
             : setError(true)
     }
 
+    useEffect(() => {
+        const handler = (event: any) => loginHandler(usernameRef, passwordRef, setUserFocus, setPassFocus);
+        window.addEventListener('click', handler)
+        return () => window.removeEventListener('click', handler)
+    }, [])
+
     return (
         <FormContainer>
             <FormTitle>Login</FormTitle>
 
             <FieldContainer>
-                <Field placeholder="Usuário" type="text"
+                <Field placeholder="Email" type="text"
                     bool={error}
                     autoComplete="on"
                     ref={usernameRef}
@@ -67,6 +67,13 @@ export const Form = () => {
             </ErrorMsg>
 
             <Btn onClick={e => btnClicked(e)}>Continuar</Btn>
+
+            <RegisterLink>
+                Não possui uma conta? {" "}
+                <span onClick={() => navigate('/register')}>
+                    Clique aqui
+                </span>
+            </RegisterLink>
 
         </FormContainer>
     );
