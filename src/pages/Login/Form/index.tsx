@@ -1,6 +1,6 @@
 import UserIcon from "../assets/UserIcon.svg";
 import PasswordIcon from "../assets/PasswordIcon.svg";
-import { focused, validateInputs } from "./ValidateLogin";
+import { validateInputs } from "./ValidateLogin";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { FormContainer, FormTitle, FieldContainer, Field, Icon, ErrorMsg, Btn, RegisterLink } from "./formComponents";

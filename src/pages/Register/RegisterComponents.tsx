@@ -8,16 +8,20 @@ export const Container = styled.main`
     height: 100vh;
     font-family: Mark Pro;
 
-    @media screen and (max-width: 379px) {
-        min-height: 700px ;
-        flex-direction: column;
-        align-items: center;
+    @media screen and (max-width: 380px) and (min-height: 700px) {
+        min-height: 950px !important;
+    }
+
+    @media screen and (max-width: 450px) {
+        min-height: 1100px;
     }
     
     @media screen and (max-width: 767px) {
-        min-height: 400px;
-        flex-direction: column;
-        align-items: center;
+        min-height: 900px;
+    }
+    
+    @media screen and (max-height: 350px) {
+        min-height: 700px;
     }
 `
 
@@ -34,7 +38,7 @@ export const RightSide = styled.div`
         display: none;
     }
     
-    @media screen and (max-height: 500px) {
+    @media screen and (max-height: 630px) {
         display: none !important;
     }
 `
@@ -59,7 +63,7 @@ background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327,
     width: 100%;
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 630px) {
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -99,7 +103,7 @@ export const Content = styled.div`
     }
 `
 
-export const Hello = styled.span`
+export const Title = styled.span`
     font-size: 58px;
     font-weight: 300;
     line-height: 76px;
@@ -116,38 +120,10 @@ export const Hello = styled.span`
     }
 `
 
-export const Phrase = styled.span`
-    font-size: 0.8vw;
-    font-weight: 300;
-    line-height: 20px;
-    text-align: left;
-    margin-bottom: 10vh;
-
-    @media screen and (max-height: 500px) {
-        margin-bottom: 2vh;
-        font-size: 12px !important;
-    }
-
-    /*@media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-bottom: 4vh;
-        font-size: 12px !important;
-    }*/
-
-    @media screen and (max-width: 767px) {
-        font-size: 3.9vw;
-        align-self: flex-start;
-    }
-
-    @media screen and (min-width: 768px) and (max-width: 1700px) {
-        font-size: 1.2vw;
-        align-self: flex-start;
-    }
-`
-
 export const Message = () => {
     return (
         <>
-            <Hello>Criar conta<br /></Hello>
+            <Title>Criar conta<br /></Title>
         </>
     );
 }

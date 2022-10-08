@@ -1,6 +1,6 @@
 import { Container, RightSide, LeftSide, Content, Message, LogoTop, LogoTopLeft } from "./RegisterComponents";
 import LogoLight from "./assets/logoLight.svg";
-import { Form } from "./Form";
+import { RegisterCtxForm } from "./RegisterContext";
 
 export const Register = () => {
     return (
@@ -9,7 +9,7 @@ export const Register = () => {
                 <LogoTopLeft src={LogoLight} />
                 <Content>
                     <Message />
-                    <Form />
+                    <RegisterCtxForm />
                 </Content>
             </LeftSide>
             <RightSide>

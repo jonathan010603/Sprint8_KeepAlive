@@ -10,10 +10,26 @@ type booleanProps = {
     bool: boolean
 }
 
+type passTooltipProps = {
+    bool: boolean,
+    reqs?: {
+        validLength: boolean,
+        upperCase: boolean,
+        lowerCase: boolean,
+        specialChar: boolean,
+        hasNumber: boolean,
+        match: boolean
+    }
+}
+
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media screen and (max-width: 767px) {
+        margin-top: 5vh;
+    }
 `
 
 export const FieldContainer = styled.div`
@@ -21,6 +37,10 @@ export const FieldContainer = styled.div`
     flex-direction: column;
     margin-bottom: 3vh;
     width: 100%;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 6vh;
+    }
 `
 
 export const FieldName = styled.span`
@@ -32,7 +52,7 @@ export const PasswordName = styled(FieldName)`
     position: relative;
 `
 
-export const PasswordTooltip = styled.div<booleanProps>`
+export const PasswordTooltip = styled.div<passTooltipProps>`
     display: ${p => p.bool ? 'flex' : 'none'};
     flex-direction: column;
     justify-content: center;
@@ -41,8 +61,8 @@ export const PasswordTooltip = styled.div<booleanProps>`
     background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
     border: 1px solid white;
     width: 70%;
-    height: 22vh;
-    top: -24vh;
+    height: 24vh;
+    top: -26vh;
     font-size: 1vw;
 
     h1, span {
@@ -56,7 +76,33 @@ export const PasswordTooltip = styled.div<booleanProps>`
         left: 1vw;
         border: 10px solid;
         border-color: white transparent transparent transparent;
-      }
+    }
+
+    span {
+        &:nth-child(2) {
+            color: ${p => p.reqs?.validLength ? 'green' : variables.error};
+        }
+        
+        &:nth-child(3) {
+            color: ${p => p.reqs?.upperCase ? 'green' : variables.error};
+        }
+
+        &:nth-child(4) {
+            color: ${p => p.reqs?.lowerCase ? 'green' : variables.error};
+        }
+
+        &:nth-child(5) {
+            color: ${p => p.reqs?.specialChar ? 'green' : variables.error};
+        }
+
+        &:nth-child(6) {
+            color: ${p => p.reqs?.hasNumber ? 'green' : variables.error};
+        }
+        
+        &:nth-child(7) {
+            color: ${p => p.reqs?.match ? 'green' : variables.error};
+        }
+    }
 `
 
 export const Field = styled.input`
@@ -138,12 +184,12 @@ export const Btn = styled.button`
 
     @media screen and (max-width: 767px) {
         width: 80vw;
-        margin-top: 0 !important;
+        margin-top: 5vh;
     }
 `
 
-export const RegisterLink = styled.span`
-    font-size: 0.8vw;
+export const LoginLink = styled.span`
+    font-size: 15px;
     font-weight: 300;
     line-height: 1.8vh;
     text-align: center;
@@ -155,12 +201,13 @@ export const RegisterLink = styled.span`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-top: 25px;
-        font-size: 2.5vw !important;
+    @media screen and (max-width: 767px) and (max-height: 767px) {
+        margin-top: 5vh;
+        font-size: 13px;
     }
-
-    @media screen and (max-width: 767px) {
-        font-size: 3.6vw;
+    
+    @media screen and (max-height: 500px) {
+        margin-top: 10vh;
+        font-size: 18px;
     }
 `
