@@ -5,38 +5,46 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { FormContainer, FormTitle, FieldContainer, Field, Icon, ErrorMsg, Btn, RegisterLink } from "./formComponents";
 import { loginHandler } from "./helpers";
+import { signIn } from "../../../utils/firebase/auth";
+import { useFocus } from "./hooks/useFocus";
+import { useLoginValidation } from "./hooks/useLoginValidation";
 
 export const Form = () => {
     const navigate = useNavigate();
-    const usernameRef = useRef(null);
-    const passwordRef = useRef(null);
+    const usernameRef = useRef<any>(null);
+    const passwordRef = useRef<any>(null);
     const [error, setError] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
-    const [passFocus, setPassFocus] = useState(false);
+    const [userFocus, passFocus] = useFocus(usernameRef, passwordRef);
     const [input, setInput] = useState({
-        username: '',
+        email: '',
         password: ''
     });
 
     const onUsernameChange = (e: any) => {
-        setInput({ ...input, username: e.target.value });
+        setError(false);
+        setInput({ ...input, email: e.target.value });
     }
 
     const onPasswordChange = (e: any) => {
+        setError(false);
         setInput({ ...input, password: e.target.value });
     }
 
     const btnClicked = (e: any) => {
-        validateInputs(input, e)
-            ? navigate('/home')
-            : setError(true)
-    }
+        e.preventDefault();
 
-    useEffect(() => {
-        const handler = (event: any) => loginHandler(usernameRef, passwordRef, setUserFocus, setPassFocus);
-        window.addEventListener('click', handler)
-        return () => window.removeEventListener('click', handler)
-    }, [])
+        if (useLoginValidation(input)) {
+            signIn(
+                usernameRef.current.value,
+                passwordRef.current.value,
+                navigate,
+                setError
+            );
+        } else {
+            setError(true);
+            passwordRef.current.value = "";
+        }
+    }
 
     return (
         <FormContainer>

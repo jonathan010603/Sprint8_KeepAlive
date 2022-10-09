@@ -1,4 +1,5 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { Navigate } from "react-router-dom";
 import { auth } from "./initialize";
 
 export const newUser = (email: string, password: string, fullname: string, emailChecked: boolean) => {
@@ -14,16 +15,14 @@ export const newUser = (email: string, password: string, fullname: string, email
         });
 }
 
-export const signIn = (email: string, password: string) => {
+export const signIn = (email: string, password: string, navigate: any, setError: any) => {
     signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-            console.log("Usuário existe")
-            const user = userCredential.user;
-            console.log(user)
+            navigate('/home');
+            //userCredential.user
         })
         .catch(error => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log({ errorCode, errorMessage });
+            setError(true);
+            password = "";
         });
 }

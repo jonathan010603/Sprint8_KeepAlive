@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { FormContainer, Field, Btn, LoginLink, FieldContainer, FieldName, PasswordName, PasswordTooltip } from "./formComponents";
 import { RegisterContext } from "../RegisterContext";
-import { tooltipHandler, useTooltip } from "./hooks/useTooltip";
+import { useTooltip } from "./hooks/useTooltip";
 import { usePasswordValidation } from "./hooks/usePasswordValidation";
 import { newUser } from "../../../utils/firebase/auth";
 import { useRegisterValidation } from "./hooks/useRegisterValidation";
@@ -43,21 +43,20 @@ export const Form = () => {
     }
 
     const [emailError, nameError, surnameError] = useRegisterValidation(ctx.registerState);
-
     const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] = usePasswordValidation(ctx.registerState);
 
     const btnClicked = (event: any) => {
         event.preventDefault();
-        let registerValid = isRegisterValid();
+        //let registerValid = isRegisterValid();
 
-        if (registerValid) {
+        if (isRegisterValid()) {
             let emailChecked = false;
             newUser(
                 emailRef.current.value,
                 firstPasswordRef.current.value,
                 nameRef.current.value + " " + surnameRef.current.value,
                 emailChecked
-            )
+            );
             if (emailChecked) {
                 alert("Usuário cadastrado com sucesso!");
                 navigate('/');
