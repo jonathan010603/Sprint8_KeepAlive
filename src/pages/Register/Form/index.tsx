@@ -4,6 +4,8 @@ import { FormContainer, Field, Btn, LoginLink, FieldContainer, FieldName, Passwo
 import { RegisterContext } from "../RegisterContext";
 import { tooltipHandler, useTooltip } from "./hooks/useTooltip";
 import { usePasswordValidation } from "./hooks/usePasswordValidation";
+import { newUser } from "../../../utils/firebase/auth";
+import { useRegisterValidation } from "./hooks/useRegisterValidation";
 
 export const Form = () => {
     const navigate = useNavigate();
@@ -13,35 +15,31 @@ export const Form = () => {
     const surnameRef = useRef<any>(null);
     const firstPasswordRef = useRef<any>(null);
     const secondPasswordRef = useRef<any>(null);
-    const [tooltipOpen, setTooltip] = useState(false);
-    const [password, setPassword] = useState({
-        firstPassword: "",
-        secondPassword: "",
-    });
-
-    const [
-        validLength,
-        hasNumber,
-        upperCase,
-        lowerCase,
-        match,
-        specialChar,
-    ] = usePasswordValidation({
-        firstPassword: password.firstPassword,
-        secondPassword: password.secondPassword,
-    });
-
-    useEffect(() => useTooltip(firstPasswordRef, secondPasswordRef, setTooltip), [])
+    const [tooltipOpen] = useTooltip(firstPasswordRef, secondPasswordRef);
 
     const setFirst = (event: any) => {
-        setPassword({ ...password, firstPassword: event.target.value });
+        ctx.setRegister({ ...ctx.registerState, firstPassword: firstPasswordRef.current.value });
     };
 
     const setSecond = (event: any) => {
-        setPassword({ ...password, secondPassword: event.target.value });
+        ctx.setRegister({ ...ctx.registerState, secondPassword: secondPasswordRef.current.value });
     };
 
-    const btnClicked = () => console.log("Clicked");
+    const btnClicked = (event: any) => {
+        event.preventDefault();
+        btnAvailable && newUser(
+            emailRef.current.value,
+            firstPasswordRef.current.value,
+            nameRef.current.value + " " + surnameRef.current.value
+        )
+    }
+
+    const [
+        validLength, hasNumber, upperCase,
+        lowerCase, match, specialChar, valid
+    ] = usePasswordValidation(ctx.registerState);
+
+    const [btnAvailable] = useRegisterValidation(ctx.registerState, valid)
 
     return (
         <FormContainer>
@@ -100,7 +98,7 @@ export const Form = () => {
                 />
             </FieldContainer>
 
-            <Btn onClick={(event: any) => btnClicked(event)}>Continuar</Btn>
+            <Btn bool={btnAvailable} onClick={(event: any) => btnClicked(event)}>Continuar</Btn>
 
             <LoginLink>
                 Já possui uma conta? {" "}

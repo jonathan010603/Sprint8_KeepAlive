@@ -3,7 +3,10 @@ import styled from "styled-components";
 const variables = {
     text: "#E0E0E0",
     error: "#E9B425",
-    register: "#0081EE"
+    register: "#0081EE",
+    checked: "#2f8a3d",
+    btn: 'linear-gradient(90deg, #FF2D04 0%, #C13216 100%), linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%)',
+    btnDisabled: 'linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF)'
 }
 
 type booleanProps = {
@@ -80,27 +83,27 @@ export const PasswordTooltip = styled.div<passTooltipProps>`
 
     span {
         &:nth-child(2) {
-            color: ${p => p.reqs?.validLength ? 'green' : variables.error};
+            color: ${p => p.reqs?.validLength ? variables.checked : variables.error};
         }
         
         &:nth-child(3) {
-            color: ${p => p.reqs?.upperCase ? 'green' : variables.error};
+            color: ${p => p.reqs?.upperCase ? variables.checked : variables.error};
         }
 
         &:nth-child(4) {
-            color: ${p => p.reqs?.lowerCase ? 'green' : variables.error};
+            color: ${p => p.reqs?.lowerCase ? variables.checked : variables.error};
         }
 
         &:nth-child(5) {
-            color: ${p => p.reqs?.specialChar ? 'green' : variables.error};
+            color: ${p => p.reqs?.specialChar ? variables.checked : variables.error};
         }
 
         &:nth-child(6) {
-            color: ${p => p.reqs?.hasNumber ? 'green' : variables.error};
+            color: ${p => p.reqs?.hasNumber ? variables.checked : variables.error};
         }
         
         &:nth-child(7) {
-            color: ${p => p.reqs?.match ? 'green' : variables.error};
+            color: ${p => p.reqs?.match ? variables.checked : variables.error};
         }
     }
 `
@@ -152,9 +155,9 @@ export const ErrorMsg = styled.span<booleanProps>`
     }
 `
 
-export const Btn = styled.button`
-    cursor: pointer;
-    color: #FFFFFF;
+export const Btn = styled.button<booleanProps>`
+    cursor: ${p => p.bool ? "pointer" : "arrow"};
+    color: ${p => p.bool ? "#FFFFFF" : "#6e6e6e"};
     padding: 0;
     margin-top: 3.8vh;
     font-size: 18px;
@@ -166,8 +169,7 @@ export const Btn = styled.button`
     border-radius: 50px;
     box-shadow: 5px 5px 15px 0px #00000026 inset;
     border: 2px solid;
-    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%), 
-    linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
+    background: ${p => p.bool ? variables.btn : variables.btnDisabled};
     border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
 
     @media screen and (max-height: 500px) {

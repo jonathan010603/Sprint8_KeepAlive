@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCpKyBWCBrNZQgDJlGu3Pfi63k2-YaaoIg",
-  authDomain: "keepalive-compass.firebaseapp.com",
-  projectId: "keepalive-compass",
-  storageBucket: "keepalive-compass.appspot.com",
-  messagingSenderId: "237815511541",
-  appId: "1:237815511541:web:e14587b986d227ab09c8bc"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 export const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);

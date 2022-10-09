@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const tooltipHandler = (firstPassRef: any, secondPassRef: any, handler: any) => {
     document.activeElement === firstPassRef.current ||
         document.activeElement === secondPassRef.current
@@ -5,8 +7,9 @@ export const tooltipHandler = (firstPassRef: any, secondPassRef: any, handler: a
         : handler(false)
 }
 
-export const useTooltip = (passwordRef: any, confirmPasswordRef: any, setTooltip: any) => {
+export const useTooltip = (passwordRef: any, confirmPasswordRef: any) => {
+    const [tooltipOpen, setTooltip] = useState(false);
     const handler = (event: any) => tooltipHandler(passwordRef, confirmPasswordRef, setTooltip);
     window.addEventListener('click', handler)
-    return () => window.removeEventListener('click', handler)
+    return [tooltipOpen]
 }

@@ -5,16 +5,16 @@ interface IReg {
     email: string | null,
     name: string | null,
     surname: string | null,
-    password: string | null,
-    confirmPassword: string | null,
+    firstPassword: string | null,
+    secondPassword: string | null,
 }
 
 const defaultState = {
     email: "",
     name: "",
     surname: "",
-    password: "",
-    confirmPassword: ""
+    firstPassword: "",
+    secondPassword: ""
 };
 
 export const RegisterContext = createContext<any>(null);

@@ -17,9 +17,9 @@ export const getSearchWeather = async (setData: any) => {
 
 export const fetchUrl = async (lat: any, lon: any, std: boolean) => {
     let result = {}
-    let url = `https://api.weatherapi.com/v1/current.json?key=f78cfb0b1d2944f1803173629220502&q=${lat},${lon}&aqi=no`;
-    std && (url = `https://api.weatherapi.com/v1/current.json?key=f78cfb0b1d2944f1803173629220502&q=brasilia&aqi=no`);
-    
+    let url = `https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_API_KEY}&q=${lat},${lon}&aqi=no`;
+    std && (url = `https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_API_KEY}&q=brasilia&aqi=no`);
+
     await fetch(url)
         .then(r => r.json())
         .then(data => {
