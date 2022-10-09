@@ -53,7 +53,7 @@ export const Form = () => {
             let emailChecked = false;
             newUser(
                 emailRef.current.value,
-                firstPasswordRef.current.value,
+               firstPasswordRef.current.value,
                 nameRef.current.value + " " + surnameRef.current.value,
                 emailChecked
             );
