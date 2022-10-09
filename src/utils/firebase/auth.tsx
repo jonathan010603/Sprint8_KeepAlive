@@ -1,18 +1,16 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "./initialize";
 
-export const newUser = (email: string, password: string, fullname: string) => {
+export const newUser = (email: string, password: string, fullname: string, emailChecked: boolean) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             updateProfile(userCredential.user, {
                 displayName: fullname
             })
-            console.log(userCredential.user.displayName)
+            emailChecked = true;
         })
         .catch(error => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log({ errorCode, errorMessage });
+            emailChecked = false;
         });
 }
 
@@ -26,5 +24,6 @@ export const signIn = (email: string, password: string) => {
         .catch(error => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log({ errorCode, errorMessage });
         });
 }

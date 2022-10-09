@@ -17,6 +17,15 @@ export const Form = () => {
     const secondPasswordRef = useRef<any>(null);
     const [tooltipOpen] = useTooltip(firstPasswordRef, secondPasswordRef);
 
+    const restartForms = () => {
+        emailRef.current.value = "";
+        firstPasswordRef.current.value = "";
+        secondPasswordRef.current.value = "";
+        ctx.setRegister({ ...ctx.registerState, email: "" })
+        ctx.setRegister({ ...ctx.registerState, firstPassword: "" })
+        ctx.setRegister({ ...ctx.registerState, secondPassword: "" })
+    }
+
     const setFirst = (event: any) => {
         ctx.setRegister({ ...ctx.registerState, firstPassword: firstPasswordRef.current.value });
     };
@@ -41,7 +50,22 @@ export const Form = () => {
         event.preventDefault();
         let registerValid = isRegisterValid();
 
-        registerValid && console.log("Massa");
+        if (registerValid) {
+            let emailChecked = false;
+            newUser(
+                emailRef.current.value,
+                firstPasswordRef.current.value,
+                nameRef.current.value + " " + surnameRef.current.value,
+                emailChecked
+            )
+            if (emailChecked) {
+                alert("Usuário cadastrado com sucesso!");
+                navigate('/');
+            } else {
+                alert("Email já está em uso");
+                restartForms();
+            }
+        }
     }
 
     return (
@@ -90,14 +114,14 @@ export const Form = () => {
                     Senha
                 </PasswordName>
                 <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={firstPasswordRef}
-                    onInput={(e: any) => setFirst(e)}
+                    onInput={(e: any) => setFirst(e)} autoComplete="on"
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Repetir senha</FieldName>
                 <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={secondPasswordRef}
-                    onInput={(e: any) => setSecond(e)}
+                    onInput={(e: any) => setSecond(e)} autoComplete="on"
                 />
             </FieldContainer>
 
