@@ -5,7 +5,7 @@ interface IuserInput {
     password: string
 }
 
-const emailRegex = /^[\w.+\-]+@compasso\.com\.br$/
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
 
 export const validateInputs = (input: IuserInput, e: React.MouseEvent<Element, MouseEvent>) => {
     e.preventDefault();

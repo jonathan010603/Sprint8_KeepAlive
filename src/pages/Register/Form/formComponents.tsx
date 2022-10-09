@@ -6,7 +6,8 @@ const variables = {
     register: "#0081EE",
     checked: "#2f8a3d",
     btn: 'linear-gradient(90deg, #FF2D04 0%, #C13216 100%), linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%)',
-    btnDisabled: 'linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF)'
+    btnDisabled: 'linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF)',
+    txtDisabled: '#6e6e6e'
 }
 
 type booleanProps = {
@@ -108,7 +109,7 @@ export const PasswordTooltip = styled.div<passTooltipProps>`
     }
 `
 
-export const Field = styled.input`
+export const Field = styled.input<booleanProps>`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     color: ${variables.text};
@@ -118,7 +119,7 @@ export const Field = styled.input`
     width: 100%;
     border-radius: 50px;
     padding: 0 3.04vw 0 1.04vw;
-    border: 1px solid #FFFFFF;
+    border: 1px solid ${p => p.bool ? variables.error : '#FFFFFF'};
     background: linear-gradient(0deg, #26292C, #26292C), linear-gradient(0deg, #FFFFFF, #FFFFFF);
     outline: none;
     font-size: 16px;
@@ -157,7 +158,7 @@ export const ErrorMsg = styled.span<booleanProps>`
 
 export const Btn = styled.button<booleanProps>`
     cursor: ${p => p.bool ? "pointer" : "arrow"};
-    color: ${p => p.bool ? "#FFFFFF" : "#6e6e6e"};
+    color: ${p => p.bool ? '#FFFFFF' : variables.txtDisabled};
     padding: 0;
     margin-top: 3.8vh;
     font-size: 18px;

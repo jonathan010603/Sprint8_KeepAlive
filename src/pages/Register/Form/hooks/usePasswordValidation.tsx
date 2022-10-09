@@ -7,15 +7,6 @@ export const usePasswordValidation = (ctx: any) => {
     const [lowerCase, setLowerCase] = useState(false);
     const [specialChar, setSpecialChar] = useState(false);
     const [match, setMatch] = useState(false);
-    const [valid, setValid] = useState(false);
-
-    useEffect(() => {
-        validLength && hasNumber &&
-        upperCase && lowerCase &&
-        specialChar && match
-        ? setValid(true) 
-        : setValid(false)
-    }, [ctx])
 
     useEffect(() => {
         setValidLength(ctx.firstPassword.length >= 6 ? true : false);
@@ -24,7 +15,7 @@ export const usePasswordValidation = (ctx: any) => {
         setSpecialChar(/[ `!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(ctx.firstPassword));
         setHasNumber(/\d/.test(ctx.firstPassword));
         setMatch(ctx.firstPassword === ctx.secondPassword && !(/^\s*$/.test(ctx.firstPassword)));
-    }, [ctx.firstPassword, ctx.secondPassword]);
+    }, [ctx]);
 
-    return [validLength, hasNumber, upperCase, lowerCase, match, specialChar, valid];
+    return [validLength, hasNumber, upperCase, lowerCase, match, specialChar];
 }

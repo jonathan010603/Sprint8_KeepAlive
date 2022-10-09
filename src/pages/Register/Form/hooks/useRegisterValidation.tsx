@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
-export const useRegisterValidation = (ctx: any, valid: boolean) => {
-    const [btnAvailable, setBtnAvailable] = useState(false);
+export const useRegisterValidation = (ctx: any) => {
+    const [emailError, setEmailError] = useState(false);
+    const [nameError, setNameError] = useState(false);
+    const [surnameError, setSurnameError] = useState(false);
 
     useEffect(() => {
-        !(/^\s*$/.test(ctx.email)) &&
-        !(/^\s*$/.test(ctx.name)) &&
-        !(/^\s*$/.test(ctx.surname)) &&
-        valid
-        ? setBtnAvailable(true) : setBtnAvailable(false)
+        setEmailError(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(ctx.email));
+        setNameError(/^\s*$/.test(ctx.name));
+        setSurnameError(/^\s*$/.test(ctx.surname));
     }, [ctx]);
 
-    return [btnAvailable];
+    return [emailError, nameError, surnameError]
 }

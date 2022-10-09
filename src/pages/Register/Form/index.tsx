@@ -25,41 +25,44 @@ export const Form = () => {
         ctx.setRegister({ ...ctx.registerState, secondPassword: secondPasswordRef.current.value });
     };
 
-    const btnClicked = (event: any) => {
-        event.preventDefault();
-        btnAvailable && newUser(
-            emailRef.current.value,
-            firstPasswordRef.current.value,
-            nameRef.current.value + " " + surnameRef.current.value
-        )
+    const isRegisterValid = () => {
+        return !emailError && !nameError && !surnameError && isPasswordValid()
     }
 
-    const [
-        validLength, hasNumber, upperCase,
-        lowerCase, match, specialChar, valid
-    ] = usePasswordValidation(ctx.registerState);
+    const isPasswordValid = () => {
+        return validLength && hasNumber && upperCase && lowerCase && specialChar && match;
+    }
 
-    const [btnAvailable] = useRegisterValidation(ctx.registerState, valid)
+    const [emailError, nameError, surnameError] = useRegisterValidation(ctx.registerState);
+
+    const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] = usePasswordValidation(ctx.registerState);
+
+    const btnClicked = (event: any) => {
+        event.preventDefault();
+        let registerValid = isRegisterValid();
+
+        registerValid && console.log("Massa");
+    }
 
     return (
         <FormContainer>
             <FieldContainer>
                 <FieldName>Email</FieldName>
-                <Field placeholder="Ex: abc@def.com" type="text" ref={emailRef}
+                <Field bool={emailError} placeholder="Ex: abc@def.com" type="text" ref={emailRef}
                     onInput={() => ctx.setRegister({ ...ctx.registerState, email: emailRef.current.value })}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Nome</FieldName>
-                <Field placeholder="Ex: João" type="text" ref={nameRef}
+                <Field bool={nameError} placeholder="Ex: João" type="text" ref={nameRef}
                     onInput={() => ctx.setRegister({ ...ctx.registerState, name: nameRef.current.value })}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Sobrenome</FieldName>
-                <Field placeholder="Ex: da Silva" type="text" ref={surnameRef}
+                <Field bool={surnameError} placeholder="Ex: da Silva" type="text" ref={surnameRef}
                     onInput={() => ctx.setRegister({ ...ctx.registerState, surname: surnameRef.current.value })}
                 />
             </FieldContainer>
@@ -86,19 +89,19 @@ export const Form = () => {
                     </PasswordTooltip>
                     Senha
                 </PasswordName>
-                <Field placeholder="Ex: @123Abc" type="password" ref={firstPasswordRef}
+                <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={firstPasswordRef}
                     onInput={(e: any) => setFirst(e)}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Repetir senha</FieldName>
-                <Field placeholder="Ex: @123Abc" type="password" ref={secondPasswordRef}
+                <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={secondPasswordRef}
                     onInput={(e: any) => setSecond(e)}
                 />
             </FieldContainer>
 
-            <Btn bool={btnAvailable} onClick={(event: any) => btnClicked(event)}>Continuar</Btn>
+            <Btn bool={isRegisterValid()} onClick={(event: any) => btnClicked(event)}>Continuar</Btn>
 
             <LoginLink>
                 Já possui uma conta? {" "}
