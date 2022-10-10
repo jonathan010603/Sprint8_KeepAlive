@@ -1,5 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { Navigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { auth } from "./initialize";
 
 export const newUser = (email: string, password: string, fullname: string, navigate: any, restartForms: any) => {
@@ -11,7 +10,9 @@ export const newUser = (email: string, password: string, fullname: string, navig
                     .join(' ')
             })
             alert("Usuário cadastrado com sucesso!");
-            navigate('/');
+            signOut(auth)
+                .then(() => navigate('/'))
+                .catch((error) => alert("Não foi possível desconectar: " + error.code))
         })
         .catch(error => {
             alert("Email já está em uso");
@@ -28,4 +29,12 @@ export const signIn = (email: string, password: string, navigate: any, setError:
             setError(true);
             password = "";
         });
+}
+
+export const userSignOut = (navigate: any) => {
+    signOut(auth).then(() => {
+        navigate('/');
+    }).catch((error) => {
+        alert("Não foi possível desconectar: " + error.code)
+    });
 }

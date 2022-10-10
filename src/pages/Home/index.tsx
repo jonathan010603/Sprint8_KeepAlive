@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import circleLogo from './assets/circleLogo.svg';
 
 export const Home = () => {
+    
     return (
         <Container>
             <Header />

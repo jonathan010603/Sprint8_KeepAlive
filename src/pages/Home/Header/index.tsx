@@ -1,11 +1,12 @@
 import { Container, Logo, TimeContainer, Hour, Day, WeatherContainer, City, Climate, Image, Temperature } from './headerComponents';
-import { checkGeoPerms, getSearchWeather, getStdWeather } from '../../../utils/WeatherApi';
-import { Time } from './Time';
 import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useGeoLocation } from './hooks/useGeoLocation';
+import { useNavigate } from 'react-router-dom';
+import { Time } from './Time';
+import { auth } from '../../../utils/firebase/initialize';
 import LogoDark from './assets/logoDark.svg';
 import Cloudy from "./assets/cloudy.png";
-import { auth } from '../../../utils/firebase/initialize';
-import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -15,14 +16,9 @@ export const Header = () => {
     });
 
     useEffect(() => {
-        if (auth.currentUser) {
-            confirm('Permitir a coleta de dados de geolocalização pela página?')
-                ? navigator.permissions
-                    ? checkGeoPerms().then(r => r ? getSearchWeather(setData) : getStdWeather(setData))
-                    : getStdWeather(setData)
-                : getStdWeather(setData)
-        }
-        else { navigate('/'); }
+        auth.currentUser
+            ? useGeoLocation(setData)
+            : navigate('/')
     }, []);
 
     return (

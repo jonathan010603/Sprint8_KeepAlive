@@ -51,7 +51,7 @@ export const Form = () => {
         if (isRegisterValid()) {
             newUser(
                 emailRef.current.value,
-               firstPasswordRef.current.value,
+                firstPasswordRef.current.value,
                 nameRef.current.value + " " + surnameRef.current.value,
                 navigate,
                 restartForms

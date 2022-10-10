@@ -1,16 +1,15 @@
 import { Container, TextContainer, Text, RefreshContainer, RefreshText, SecondsContainer, Seconds, UnderText, NewTabContainer, Logout, Greetings } from './footerComponents';
 import { useNavigate } from 'react-router-dom';
+import { userSignOut } from '../../../utils/firebase/auth';
 import { TimeOut } from './TimeOut';
-import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../../utils/firebase/initialize';
-import { useEffect } from 'react';
 
 export const Footer = () => {
     const navigate = useNavigate();
 
     return (
         <Container>
-            <Greetings>Olá, {auth.currentUser?.displayName.split(' ')[0]}</Greetings>
+            <Greetings>{auth.currentUser ? `Olá, ${auth.currentUser?.displayName.split(' ')[0]}`: ''}</Greetings>
             <TextContainer>
                 <Text>
                     Essa janela do navegador é usada para manter
@@ -30,7 +29,7 @@ export const Footer = () => {
                 Continuar<br />
                 Navegando
             </NewTabContainer>
-            <Logout onClick={() => navigate('/')}>
+            <Logout onClick={() => userSignOut(navigate)}>
                 Logout
             </Logout>
         </Container >
