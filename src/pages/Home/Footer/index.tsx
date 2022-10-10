@@ -1,12 +1,16 @@
-import { Container, TextContainer, Text, RefreshContainer, RefreshText, SecondsContainer, Seconds, UnderText, NewTabContainer, Logout } from './footerComponents';
+import { Container, TextContainer, Text, RefreshContainer, RefreshText, SecondsContainer, Seconds, UnderText, NewTabContainer, Logout, Greetings } from './footerComponents';
 import { useNavigate } from 'react-router-dom';
 import { TimeOut } from './TimeOut';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../utils/firebase/initialize';
+import { useEffect } from 'react';
 
 export const Footer = () => {
     const navigate = useNavigate();
 
     return (
         <Container>
+            <Greetings>Olá, {auth.currentUser?.displayName.split(' ')[0]}</Greetings>
             <TextContainer>
                 <Text>
                     Essa janela do navegador é usada para manter

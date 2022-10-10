@@ -29,6 +29,37 @@ export const Container = styled.footer`
     }
  `
 
+export const Greetings = styled.span`
+    align-self: center;
+    margin-left: 1vw;
+    font-size: 1vw;
+    white-space: nowrap;
+
+    @media screen and (max-width: 768px) and (max-height: 500px) {
+        font-size: 7px !important;
+        margin: 0 auto !important;
+        margin-right: 3vw !important;
+    }
+
+    @media screen and (max-width: 1024px) {
+        align-self: center;
+        font-size: 3.4vw;
+        margin: 0 auto;
+    }
+    
+    @media screen and (min-width: 425px) and (max-width: 599px) {
+        font-size: 3vw;
+    }
+
+    @media screen and (min-width: 600px) and (max-width: 767px) {
+        font-size: 17px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        font-size: 18px;
+    }
+`
+
 export const TextContainer = styled.div`
     display: flex;
     width: 30vw;
@@ -68,15 +99,15 @@ export const Text = styled.span`
     }
     
     @media screen and (min-width: 425px) and (max-width: 599px) {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     @media screen and (min-width: 600px) and (max-width: 767px) {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 18px;
+        font-size: 16px;
     }
 `
 
@@ -164,7 +195,7 @@ export const Seconds = styled.span`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 40px;
+        font-size: 38px;
     }
 `
 
@@ -229,7 +260,7 @@ export const NewTabContainer = styled.button`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 22px;
+        font-size: 17px;
     }
 `
 

@@ -4,19 +4,25 @@ import { Time } from './Time';
 import { useEffect, useState } from 'react';
 import LogoDark from './assets/logoDark.svg';
 import Cloudy from "./assets/cloudy.png";
+import { auth } from '../../../utils/firebase/initialize';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
+    const navigate = useNavigate();
     const [locationData, setData] = useState<any>({
         city: '',
         temp: '',
-    })
+    });
 
     useEffect(() => {
-        confirm('Permitir a coleta de dados de geolocalização pela página?')
-            ? navigator.permissions
-                ? checkGeoPerms().then(r => r ? getSearchWeather(setData) : getStdWeather(setData))
+        if (auth.currentUser) {
+            confirm('Permitir a coleta de dados de geolocalização pela página?')
+                ? navigator.permissions
+                    ? checkGeoPerms().then(r => r ? getSearchWeather(setData) : getStdWeather(setData))
+                    : getStdWeather(setData)
                 : getStdWeather(setData)
-            : getStdWeather(setData)
+        }
+        else { navigate('/'); }
     }, []);
 
     return (

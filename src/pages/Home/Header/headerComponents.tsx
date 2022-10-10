@@ -130,7 +130,7 @@ export const Climate = styled.div`
 
     @media screen and (max-width: 1024px) {
         height: auto;   
-        margin-top: 1vh;
+        margin-top: 2vh;
     }
 `
 

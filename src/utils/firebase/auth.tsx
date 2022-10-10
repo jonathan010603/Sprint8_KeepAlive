@@ -2,16 +2,20 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { Navigate } from "react-router-dom";
 import { auth } from "./initialize";
 
-export const newUser = (email: string, password: string, fullname: string, emailChecked: boolean) => {
+export const newUser = (email: string, password: string, fullname: string, navigate: any, restartForms: any) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             updateProfile(userCredential.user, {
-                displayName: fullname
+                displayName: fullname.toLowerCase().split(' ')
+                    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                    .join(' ')
             })
-            emailChecked = true;
+            alert("Usuário cadastrado com sucesso!");
+            navigate('/');
         })
         .catch(error => {
-            emailChecked = false;
+            alert("Email já está em uso");
+            restartForms();
         });
 }
 
@@ -19,7 +23,6 @@ export const signIn = (email: string, password: string, navigate: any, setError:
     signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             navigate('/home');
-            //userCredential.user
         })
         .catch(error => {
             setError(true);

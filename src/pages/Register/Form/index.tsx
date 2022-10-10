@@ -47,23 +47,15 @@ export const Form = () => {
 
     const btnClicked = (event: any) => {
         event.preventDefault();
-        //let registerValid = isRegisterValid();
 
         if (isRegisterValid()) {
-            let emailChecked = false;
             newUser(
                 emailRef.current.value,
                firstPasswordRef.current.value,
                 nameRef.current.value + " " + surnameRef.current.value,
-                emailChecked
+                navigate,
+                restartForms
             );
-            if (emailChecked) {
-                alert("Usuário cadastrado com sucesso!");
-                navigate('/');
-            } else {
-                alert("Email já está em uso");
-                restartForms();
-            }
         }
     }
 
