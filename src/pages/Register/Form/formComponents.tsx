@@ -69,6 +69,26 @@ export const PasswordTooltip = styled.div<passTooltipProps>`
     top: -26vh;
     font-size: 1vw;
 
+    @media screen and (max-width: 850px) {
+        font-size: 1.5vw;
+    }
+    
+    @media screen and (max-width: 650px) {
+        font-size: 1.8vw;
+    }
+    
+    @media screen and (max-width: 500px) {
+        font-size: 2.2vw;
+    }
+    
+    @media screen and (max-width: 425px) {
+        font-size: 2.8vw;
+    }
+    
+    @media screen and (max-width: 310px) {
+        font-size: 4vw;
+    }
+
     h1, span {
         margin-bottom: 1vh;
     }
@@ -211,6 +231,6 @@ export const LoginLink = styled.span`
     
     @media screen and (max-height: 500px) {
         margin-top: 10vh;
-        font-size: 18px;
+        font-size: 16px;
     }
 `

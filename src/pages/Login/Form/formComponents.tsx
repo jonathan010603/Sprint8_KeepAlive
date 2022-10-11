@@ -139,6 +139,10 @@ export const Btn = styled.button`
         width: 80vw;
         margin-top: 0 !important;
     }
+
+    @media screen and (max-height: 1200px) and (max-width: 950px) {
+        margin-top: 2vh;
+    }
 `
 
 export const RegisterLink = styled.span`

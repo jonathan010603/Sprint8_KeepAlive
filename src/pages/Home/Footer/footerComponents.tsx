@@ -38,6 +38,7 @@ export const Greetings = styled.span`
     @media screen and (max-width: 768px) and (max-height: 500px) {
         font-size: 7px !important;
         margin: 0 auto !important;
+        margin-left: 3vw !important;
         margin-right: 3vw !important;
     }
 
@@ -107,7 +108,7 @@ export const Text = styled.span`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 16px;
+        font-size: 14px;
     }
 `
 

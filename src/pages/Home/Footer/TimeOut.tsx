@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { userSignOut } from "../../../utils/firebase/auth";
 
 export const TimeOut = () => {
     const [second, setSecond] = useState(60);
@@ -7,7 +8,7 @@ export const TimeOut = () => {
 
     const refresh = () => {
         second === 1
-            ? navigate('/')
+            ? userSignOut(navigate)
             : setSecond(second - 1)
     }
 

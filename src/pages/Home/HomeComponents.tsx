@@ -76,7 +76,7 @@ export const TextContainer = styled.div`
     
     @media screen and (max-width: 1024px) {
         margin-right: 2vw; 
-        margin-top: 7vh;
+        margin-top: 3vh;
         width: auto;
         height: 30px;
     }
@@ -93,8 +93,8 @@ export const BigText = styled.span`
 
     @media screen and (max-width: 768px) and (max-height: 500px) {
         margin-top: 3vh !important;
-        font-size: 3.8vw !important;
-        line-height: 20px !important; 
+        font-size: 3.6vw !important;
+        line-height: 15px !important; 
     }
 
     @media screen and (max-width: 424px) {
@@ -108,8 +108,8 @@ export const BigText = styled.span`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 4vw;
-        line-height: 30px;
+        font-size: 2.8vw;
+        line-height: 27px;
     }
 `
 
@@ -129,7 +129,7 @@ export const FirstText = styled(BigText)`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 3.5vw;
+        font-size: 2.5vw;
     }
 `
 
@@ -141,6 +141,7 @@ export const LittleText = styled.span`
 
     @media screen and (max-width: 768px) and (max-height: 500px) {
         font-size: 2vw !important;
+        margin-top: 1vh;
     }
 
     @media screen and (max-width: 767px) {
@@ -152,7 +153,8 @@ export const LittleText = styled.span`
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        font-size: 2.8vw;
+        font-size: 1.7vw;
+        margin-top: 1vh;
     }
 `
 

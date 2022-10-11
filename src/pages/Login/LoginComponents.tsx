@@ -19,6 +19,20 @@ export const Container = styled.main`
         flex-direction: column;
         align-items: center;
     }
+
+    @media screen and (max-width: 900px) {
+        min-height: 580px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media screen and (max-height: 1200px) and (max-width: 600px) {
+        min-height: 550px;
+    }
+
+    @media screen and (max-height: 300px) {
+        min-height: 400px;
+    }
 `
 
 export const RightSide = styled.div`
@@ -37,6 +51,10 @@ export const RightSide = styled.div`
     @media screen and (max-height: 500px) {
         display: none !important;
     }
+
+    @media screen and (max-height: 1200px) and (max-width: 950px) {
+        display: none !important;
+    }
 `
 
 export const LogoTop = styled.img`
@@ -47,23 +65,29 @@ export const LogoTop = styled.img`
 
 
 export const LeftSide = styled.div`
-display: flex;
-justify-content: center;
-width: 50%;
-height: 100%;
-background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
 
-@media screen and (max-width: 767px) {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-@media screen and (max-height: 500px) {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+    @media screen and (max-height: 500px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    @media screen and (max-height: 1200px) and (max-width: 950px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 `
 export const LogoTopLeft = styled.img`
     margin-top: 3.24vh;
@@ -79,6 +103,20 @@ export const LogoTopLeft = styled.img`
         height: 13vh;
         display: flex;
         width: 80vw;
+    }
+
+    @media screen and (max-height: 767px) and (max-width: 950px) {
+        margin-top: 1vh;
+        height: 13vh;
+        display: flex;
+        width: 80vw;
+    }
+
+    @media screen and (max-height: 1200px) and (max-width: 950px) {
+        margin-bottom: 3vh;
+        height: 13vh;
+        display: flex !important;
+        width: 23.6vw !important;
     }
 `
 
