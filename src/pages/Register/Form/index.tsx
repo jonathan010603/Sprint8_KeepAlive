@@ -12,7 +12,6 @@ export const Form = () => {
     const ctx = useContext(RegisterContext);
     const emailRef = useRef<any>(null);
     const nameRef = useRef<any>(null);
-    const surnameRef = useRef<any>(null);
     const firstPasswordRef = useRef<any>(null);
     const secondPasswordRef = useRef<any>(null);
     const [tooltipOpen] = useTooltip(firstPasswordRef, secondPasswordRef);
@@ -35,14 +34,14 @@ export const Form = () => {
     };
 
     const isRegisterValid = () => {
-        return !emailError && !nameError && !surnameError && isPasswordValid()
+        return !emailError && !nameError && isPasswordValid()
     }
 
     const isPasswordValid = () => {
         return validLength && hasNumber && upperCase && lowerCase && specialChar && match;
     }
 
-    const [emailError, nameError, surnameError] = useRegisterValidation(ctx.registerState);
+    const [emailError, nameError] = useRegisterValidation(ctx.registerState);
     const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] = usePasswordValidation(ctx.registerState);
 
     const btnClicked = (event: any) => {
@@ -52,7 +51,7 @@ export const Form = () => {
             newUser(
                 emailRef.current.value,
                 firstPasswordRef.current.value,
-                nameRef.current.value + " " + surnameRef.current.value,
+                nameRef.current.value,
                 navigate,
                 restartForms
             );
@@ -72,13 +71,6 @@ export const Form = () => {
                 <FieldName>Nome</FieldName>
                 <Field bool={nameError} placeholder="Ex: João" type="text" ref={nameRef}
                     onInput={() => ctx.setRegister({ ...ctx.registerState, name: nameRef.current.value })}
-                />
-            </FieldContainer>
-
-            <FieldContainer>
-                <FieldName>Sobrenome</FieldName>
-                <Field bool={surnameError} placeholder="Ex: da Silva" type="text" ref={surnameRef}
-                    onInput={() => ctx.setRegister({ ...ctx.registerState, surname: surnameRef.current.value })}
                 />
             </FieldContainer>
 

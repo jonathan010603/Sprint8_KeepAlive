@@ -4,7 +4,6 @@ import { Form } from './Form';
 interface IReg {
     email: string | null,
     name: string | null,
-    surname: string | null,
     firstPassword: string | null,
     secondPassword: string | null,
 }
@@ -12,7 +11,6 @@ interface IReg {
 const defaultState = {
     email: "",
     name: "",
-    surname: "",
     firstPassword: "",
     secondPassword: ""
 };

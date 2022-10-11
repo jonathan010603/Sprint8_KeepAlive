@@ -9,7 +9,7 @@ export const Container = styled.main`
     font-family: Mark Pro;
 
     @media screen and (max-width: 480px) {
-        min-height: 900px;
+        min-height: 750px;
     }
 
     @media screen and (max-width: 480px) and (min-height: 670px) {
@@ -43,6 +43,10 @@ export const Container = styled.main`
         
         @media screen and (min-width: 800px) and (max-height: 480px) {
             min-height: 650px !important;
+        }
+        
+        @media screen and (min-width: 1000px) {
+            min-height: 100% !important;
         }
     }
 `
@@ -123,7 +127,7 @@ export const LogoTopLeft = styled.img`
 `
 
 export const Content = styled.div`
-    margin-top: 5vh;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     color: #E0E0E0;
