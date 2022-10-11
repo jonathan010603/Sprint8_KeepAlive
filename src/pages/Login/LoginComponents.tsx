@@ -8,30 +8,42 @@ export const Container = styled.main`
     height: 100vh;
     font-family: Mark Pro;
 
-    @media screen and (max-width: 379px) {
-        min-height: 700px ;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    @media screen and (max-width: 767px) {
-        min-height: 400px;
-        flex-direction: column;
-        align-items: center;
+    @media screen and (max-width: 480px) {
+        min-height: 600px;
     }
 
-    @media screen and (max-width: 900px) {
-        min-height: 580px;
-        flex-direction: column;
-        align-items: center;
+    @media screen and (max-width: 480px) and (min-height: 670px) {
+        min-height: 850px;
     }
 
-    @media screen and (max-height: 1200px) and (max-width: 600px) {
-        min-height: 550px;
+    @media screen and (min-width: 481px) {
+        min-height: 850px;
     }
 
-    @media screen and (max-height: 300px) {
-        min-height: 400px;
+    @media screen and (min-width: 600px) {
+        min-height: 100%;
+    }
+
+    @media screen and (min-width: 801px) {
+        min-height: 100%;
+    }
+
+    @media screen and (orientation: landscape) {
+        @media screen and (max-height: 349px) {
+            min-height: 380px !important;
+        }
+
+        @media screen and (min-height: 350px) {
+            min-height: 450px !important;
+        }
+        
+        @media screen and (min-width: 600px) {
+            min-height: 100%;
+        }
+        
+        @media screen and (min-width: 800px) {
+            min-height: 100% !important;
+        }
     }
 `
 
@@ -44,16 +56,13 @@ export const RightSide = styled.div`
     background-image: url(${LoginImage});
     background-size: cover;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         display: none;
     }
-    
-    @media screen and (max-height: 500px) {
-        display: none !important;
-    }
 
-    @media screen and (max-height: 1200px) and (max-width: 950px) {
-        display: none !important;
+    @media screen and (min-width: 800px) and (max-height: 480px) {
+        min-height: 650px !important;
+        display: none;
     }
 `
 
@@ -71,19 +80,13 @@ export const LeftSide = styled.div`
     height: 100%;
     background-image: linear-gradient(to bottom, #33383d, #2d3136, #272a2e, #222327, #1c1d20);
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
 
-    @media screen and (max-height: 500px) {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    @media screen and (max-height: 1200px) and (max-width: 950px) {
+    @media screen and (max-height: 630px) {
         flex-direction: column;
         align-items: center;
         width: 100%;
@@ -91,32 +94,32 @@ export const LeftSide = styled.div`
 `
 export const LogoTopLeft = styled.img`
     margin-top: 3.24vh;
+    margin-bottom: 5vh;
     width: 90vw;
     height: 6.38vh;
 
-    @media screen and (min-width: 768px) {
-        display: none !important;
+    @media screen and (min-width: 801px) {
+        display: none;
     }
 
-    @media screen and (max-height: 767px) {
-        margin-top: 1vh;
-        height: 13vh;
+    @media screen and (min-width: 801px) and (max-height: 480px) {
         display: flex;
-        width: 80vw;
     }
 
-    @media screen and (max-height: 767px) and (max-width: 950px) {
-        margin-top: 1vh;
-        height: 13vh;
-        display: flex;
-        width: 80vw;
+    @media screen and (min-width: 600px) {
+        margin: 0;
+        margin-top: 2vh;
     }
 
-    @media screen and (max-height: 1200px) and (max-width: 950px) {
-        margin-bottom: 3vh;
-        height: 13vh;
-        display: flex !important;
-        width: 23.6vw !important;
+    @media screen and (orientation: landscape) {
+        @media screen and (max-height: 480px) {
+            height: 15vh !important;
+            margin-bottom: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            margin: 0;
+        }
     }
 `
 
@@ -130,7 +133,7 @@ export const Content = styled.div`
         margin-top: 0;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         margin-top: 9vh;
         margin-bottom: auto;
         align-items: center;
@@ -148,7 +151,7 @@ export const Hello = styled.span`
         font-size: 4vw !important;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         font-size: 40px;
         align-self: flex-start;
     }
@@ -166,17 +169,13 @@ export const Phrase = styled.span`
         font-size: 12px !important;
     }
 
-    /*@media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-bottom: 4vh;
-        font-size: 12px !important;
-    }*/
-
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 799px) {
         font-size: 3.9vw;
+        line-height: 30px;
         align-self: flex-start;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1700px) {
+    @media screen and (min-width: 800px) and (max-width: 1700px) {
         font-size: 1.2vw;
         align-self: flex-start;
     }

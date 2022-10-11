@@ -31,7 +31,7 @@ export const FormContainer = styled.form`
     flex-direction: column;
     align-items: flex-start;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 600px) {
         margin-top: 5vh;
     }
 `
@@ -42,7 +42,7 @@ export const FieldContainer = styled.div`
     margin-bottom: 3vh;
     width: 100%;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 600px) {
         margin-bottom: 6vh;
     }
 `
@@ -154,7 +154,7 @@ export const Field = styled.input<booleanProps>`
         height: 10vh;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 600px) {
         padding: 0 13vw 0 3.04vw;
         width: 80vw;
     }
@@ -205,10 +205,15 @@ export const Btn = styled.button<booleanProps>`
         font-size: 10px;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 600px) {
         width: 80vw;
         margin-top: 5vh;
     }
+
+    @media screen and (orientation: landscape) {
+        @media screen and (min-width: 600px) {
+            margin-top: 2vh;
+        }
 `
 
 export const LoginLink = styled.span`
@@ -232,5 +237,11 @@ export const LoginLink = styled.span`
     @media screen and (max-height: 500px) {
         margin-top: 10vh;
         font-size: 16px;
+    }
+
+    @media screen and (orientation: landscape) {
+        @media screen and (max-height: 480px) {
+            margin-top: 4vh;
+        }
     }
 `

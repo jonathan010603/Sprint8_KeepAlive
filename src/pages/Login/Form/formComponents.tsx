@@ -17,19 +17,26 @@ export const FormContainer = styled.form`
 `
 
 export const FormTitle = styled.span`
-    font-size: 30px;
+    font-size: 58px;
     font-weight: 300;
-    line-height: 38px;
+    line-height: 76px;
     text-align: left;
-    margin-bottom: 2.9vh;
+    align-self: flex-start;
 
-    @media screen and (max-width: 768px) and (max-height: 500px) {
-        margin-bottom: 2vh;
-        font-size: 15px !important;
+    @media screen and (max-width: 599px) {
+        line-height: 35px;
+        font-size: 30px !important;
     }
 
-    @media screen and (max-width: 767px) {
-        font-size: 7vw;
+    @media screen and (min-width: 800px) {
+        font-size: 40px;
+    }
+
+    @media screen and (orientation: landscape) {
+        @media screen and (max-height: 480px) {
+            font-size: 30px !important;
+            line-height: 50px;
+        }
     }
 `
 
@@ -39,7 +46,6 @@ export const FieldContainer = styled.div`
     align-items: center;
     margin-bottom: 3vh;
     width: 100%;
-
 `
 
 export const Field = styled.input<booleanProps>`
@@ -68,7 +74,7 @@ export const Field = styled.input<booleanProps>`
         height: 10vh;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         padding: 0 13vw 0 3.04vw;
         width: 80vw;
     }
@@ -80,11 +86,11 @@ export const Icon = styled.img<booleanProps>`
     left: ${p => p.bool ? '17.5vw' : '20.67vw'};
     width: 10px;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         left: ${p => p.bool ? '70vw' : '81.5vw'};
     }
 
-    @media screen and (min-width: 768px) and (max-width: 900px) and (max-height: 500px) {
+    @media screen and (min-width: 800px) and (max-width: 900px) and (max-height: 500px) {
         left: ${p => p.bool ? '21vw' : '21vw'};
     }
 `
@@ -98,10 +104,21 @@ export const ErrorMsg = styled.span<booleanProps>`
     margin-left: 3.8vw;
     visibility: ${p => p.bool ? 'visible' : 'hidden'};
 
+    @media screen and (max-height: 400px) {
+        line-height: 1vh !important;
+    }
+
     @media screen and (max-width: 767px) {
         margin-left: 12vw;
         font-size: 3.6vw;
         visibility: hidden;
+    }
+    
+    @media screen and (max-width: 800px) {
+        margin: 0 auto;
+        font-size: 2.5vw;
+        margin-bottom: 3vh;
+        line-height: 3vh;
     }
 `
 
@@ -122,7 +139,7 @@ export const Btn = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%), 
     linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
     border-image-source: linear-gradient(132.34deg, #FF2D04 22.57%, #C13216 72.04%);
-
+  
     @media screen and (max-height: 500px) {
         width: 100%;
         height: 10vh;
@@ -135,7 +152,7 @@ export const Btn = styled.button`
         font-size: 10px;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         width: 80vw;
         margin-top: 0 !important;
     }
@@ -159,12 +176,17 @@ export const RegisterLink = styled.span`
         cursor: pointer;
     }
 
+    @media screen and (max-height: 480px) {
+        margin-top: 6vh !important;
+    }
+
     @media screen and (max-width: 768px) and (max-height: 500px) {
         margin-top: 25px;
         font-size: 2.5vw !important;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         font-size: 3.6vw;
+        margin-top: 3vh;
     }
 `
