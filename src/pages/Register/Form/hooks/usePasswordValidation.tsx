@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const usePasswordValidation = (ctx: any) => {
+export const usePasswordValidation = (fields: any) => {
     const [validLength, setValidLength] = useState(false);
     const [hasNumber, setHasNumber] = useState(false);
     const [upperCase, setUpperCase] = useState(false);
@@ -9,13 +9,13 @@ export const usePasswordValidation = (ctx: any) => {
     const [match, setMatch] = useState(false);
 
     useEffect(() => {
-        setValidLength(ctx.firstPassword.length >= 6 ? true : false);
-        setUpperCase(ctx.firstPassword.toLowerCase() !== ctx.firstPassword);
-        setLowerCase(ctx.firstPassword.toUpperCase() !== ctx.firstPassword);
-        setSpecialChar(/[ `!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(ctx.firstPassword));
-        setHasNumber(/\d/.test(ctx.firstPassword));
-        setMatch(ctx.firstPassword === ctx.secondPassword && !(/^\s*$/.test(ctx.firstPassword)));
-    }, [ctx]);
+        setValidLength(fields.firstPassword.length >= 6 ? true : false);
+        setUpperCase(fields.firstPassword.toLowerCase() !== fields.firstPassword);
+        setLowerCase(fields.firstPassword.toUpperCase() !== fields.firstPassword);
+        setSpecialChar(/[ `!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(fields.firstPassword));
+        setHasNumber(/\d/.test(fields.firstPassword));
+        setMatch(fields.firstPassword === fields.secondPassword && !(/^\s*$/.test(fields.firstPassword)));
+    }, [fields]);
 
     return [validLength, hasNumber, upperCase, lowerCase, match, specialChar];
 }

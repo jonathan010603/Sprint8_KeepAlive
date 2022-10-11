@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FormContainer, Field, Btn, LoginLink, FieldContainer, FieldName, PasswordName, PasswordTooltip } from "./formComponents";
-import { RegisterContext } from "../RegisterContext";
 import { useTooltip } from "./hooks/useTooltip";
 import { usePasswordValidation } from "./hooks/usePasswordValidation";
 import { newUser } from "../../../utils/firebase/auth";
@@ -9,53 +8,50 @@ import { useRegisterValidation } from "./hooks/useRegisterValidation";
 
 export const Form = () => {
     const navigate = useNavigate();
-    const ctx = useContext(RegisterContext);
     const emailRef = useRef<any>(null);
     const nameRef = useRef<any>(null);
     const firstPasswordRef = useRef<any>(null);
     const secondPasswordRef = useRef<any>(null);
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [firstPassword, setFirstPass] = useState("");
+    const [secondPassword, setSecPass] = useState("");
     const [tooltipOpen] = useTooltip(firstPasswordRef, secondPasswordRef);
+    const [emailError, nameError] = useRegisterValidation({email, name});
+
+    const [
+        validLength, hasNumber, 
+        upperCase, lowerCase, 
+        match, specialChar
+    ] = usePasswordValidation({firstPassword, secondPassword});
+
 
     const restartForms = () => {
-        emailRef.current.value = "";
-        firstPasswordRef.current.value = "";
-        secondPasswordRef.current.value = "";
-        ctx.setRegister({ ...ctx.registerState, email: "" })
-        ctx.setRegister({ ...ctx.registerState, firstPassword: "" })
-        ctx.setRegister({ ...ctx.registerState, secondPassword: "" })
-    }
-
-    const setFirst = (event: any) => {
-        ctx.setRegister({ ...ctx.registerState, firstPassword: firstPasswordRef.current.value });
-    };
-
-    const setSecond = (event: any) => {
-        ctx.setRegister({ ...ctx.registerState, secondPassword: secondPasswordRef.current.value });
-    };
-
-    const isRegisterValid = () => {
-        return !emailError && !nameError && isPasswordValid()
+        setEmail("")
+        setName("")
+        setFirstPass("")
+        setSecPass("")
     }
 
     const isPasswordValid = () => {
         return validLength && hasNumber && upperCase && lowerCase && specialChar && match;
     }
 
-    const [emailError, nameError] = useRegisterValidation(ctx.registerState);
-    const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] = usePasswordValidation(ctx.registerState);
+    const isRegisterValid = () => {
+        return !emailError && !nameError && isPasswordValid()
+    }
 
     const btnClicked = (event: any) => {
         event.preventDefault();
 
-        if (isRegisterValid()) {
-            newUser(
+        isRegisterValid() 
+            && newUser(
                 emailRef.current.value,
                 firstPasswordRef.current.value,
                 nameRef.current.value,
                 navigate,
                 restartForms
             );
-        }
     }
 
     return (
@@ -63,14 +59,14 @@ export const Form = () => {
             <FieldContainer>
                 <FieldName>Email</FieldName>
                 <Field bool={emailError} placeholder="Ex: abc@def.com" type="text" ref={emailRef}
-                    onInput={() => ctx.setRegister({ ...ctx.registerState, email: emailRef.current.value })}
+                    onInput={() => setEmail(emailRef.current.value)}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Nome</FieldName>
                 <Field bool={nameError} placeholder="Ex: João" type="text" ref={nameRef}
-                    onInput={() => ctx.setRegister({ ...ctx.registerState, name: nameRef.current.value })}
+                    onInput={() => setName(nameRef.current.value)}
                 />
             </FieldContainer>
 
@@ -97,14 +93,16 @@ export const Form = () => {
                     Senha
                 </PasswordName>
                 <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={firstPasswordRef}
-                    onInput={(e: any) => setFirst(e)} autoComplete="on"
+                    autoComplete="on" value={firstPassword}
+                    onInput={(e: any) => setFirstPass(firstPasswordRef.current.value)}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Repetir senha</FieldName>
                 <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={secondPasswordRef}
-                    onInput={(e: any) => setSecond(e)} autoComplete="on"
+                    autoComplete="on" value={secondPassword}
+                    onInput={(e: any) => setSecPass(secondPasswordRef.current.value)}
                 />
             </FieldContainer>
 
