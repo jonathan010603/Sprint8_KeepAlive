@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userSignOut } from "../../../utils/firebase/auth";
 
 export const TimeOut = () => {
-    const [second, setSecond] = useState(60);
+    const [second, setSecond] = useState(30);
     const navigate = useNavigate();
 
     const refresh = () => {
