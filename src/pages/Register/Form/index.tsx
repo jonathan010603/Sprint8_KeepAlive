@@ -58,14 +58,14 @@ export const Form = () => {
         <FormContainer>
             <FieldContainer>
                 <FieldName>Email</FieldName>
-                <Field bool={emailError} placeholder="Ex: abc@def.com" type="text" ref={emailRef}
+                <Field bool={emailError} placeholder="Email" type="text" ref={emailRef}
                     onInput={() => setEmail(emailRef.current.value)}
                 />
             </FieldContainer>
 
             <FieldContainer>
                 <FieldName>Nome</FieldName>
-                <Field bool={nameError} placeholder="Ex: João" type="text" ref={nameRef}
+                <Field bool={nameError} placeholder="Nome" type="text" ref={nameRef}
                     onInput={() => setName(nameRef.current.value)}
                 />
             </FieldContainer>
@@ -92,7 +92,7 @@ export const Form = () => {
                     </PasswordTooltip>
                     Senha
                 </PasswordName>
-                <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={firstPasswordRef}
+                <Field bool={!isPasswordValid()} placeholder="Senha" type="password" ref={firstPasswordRef}
                     autoComplete="on" value={firstPassword}
                     onInput={(e: any) => setFirstPass(firstPasswordRef.current.value)}
                 />
@@ -100,7 +100,7 @@ export const Form = () => {
 
             <FieldContainer>
                 <FieldName>Repetir senha</FieldName>
-                <Field bool={!isPasswordValid()} placeholder="Ex: @123Abc" type="password" ref={secondPasswordRef}
+                <Field bool={!isPasswordValid()} placeholder="Repetir senha" type="password" ref={secondPasswordRef}
                     autoComplete="on" value={secondPassword}
                     onInput={(e: any) => setSecPass(secondPasswordRef.current.value)}
                 />
