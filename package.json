@@ -1,12 +1,15 @@
 {
   "name": "final",
   "private": true,
+  "homepage": "https://jonathan010603.github.io/keepalive",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
