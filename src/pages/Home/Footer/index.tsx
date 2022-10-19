@@ -9,7 +9,7 @@ export const Footer = () => {
 
     return (
         <Container>
-            <Greetings>{auth.currentUser ? `Olá, ${auth.currentUser?.displayName.split(' ')[0]}`: ''}</Greetings>
+            <Greetings>{auth.currentUser ? `Olá, ${auth.currentUser.displayName?.split(' ')[0]}`: ''}</Greetings>
             <TextContainer>
                 <Text>
                     Essa janela do navegador é usada para manter
